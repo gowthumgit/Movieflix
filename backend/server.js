@@ -2,8 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose')
+path = require('path');
+cors = require('cors');
 
 mongoose.Promise = global.Promise;
+
+
+
 
 // connection to mongodb using mongoose
 mongoose.connect(dbConfig.url,{
@@ -46,6 +51,9 @@ app.listen(7070,function(){
 app.get('/',(req,res)=>{
     res.send("message:Hello Multiplex Node Express");
 });
+app.use(bodyParser.json());
+app.use(cors());
+
 
 app.post('/display',(req,res)=>{
     console.log("in post method")
