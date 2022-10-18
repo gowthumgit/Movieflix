@@ -1,0 +1,10 @@
+<div class="seat-item seat-space btn btn-primary" style="color:rgb(216, 215, 231) ;
+ background-color:rgb(102, 115, 225)" *ngIf="(seat.occupied) == 'true'">
+ {{seat.seatname}}
+</div>
+
+
+<div class="seat-item seat-space btn btn-primary disabled" style="color:rgb(216, 215, 231) ;
+ background-color:rgb(213, 74, 83)" *ngIf="(seat.occupied) == 'false'" disabled>
+ {{seat.seatname}}
+</div>
