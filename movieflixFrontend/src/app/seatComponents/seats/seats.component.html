@@ -1,0 +1,29 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Movie Name</h1>
+        <hr class="my-2">
+        <br>
+            <form action="">
+                <label for="seats_order">Enter the number of seats:   </label>
+                <input type="number" style="margin-left: 4px;">
+            </form>
+        
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card" style="padding-left:30px">
+        <div class="card-body">
+            <h4 class="card-title">Movie Name</h4>
+        </div>
+    
+        <div class="row">
+            <app-seat [seat]= "seat" *ngFor= "let seat of seats"
+                style="margin-bottom: 10px" class="col-md-1">
+            </app-seat>
+        </div>
+
+     
+    </div>
+</div>
+
+
