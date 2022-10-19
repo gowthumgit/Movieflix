@@ -14,10 +14,17 @@ export class AdminAddChennaiComponent implements OnInit {
   formSubmitted = false;
   addMovForm!: FormGroup;
   movieData : Movie[] = [];
+  movieId!:FormControl;
   name!: FormControl;
-  language!: FormControl;
   genre!: FormControl;
   image_url!: FormControl;
+  language!: FormControl;
+  duration!:FormControl;
+  rating!:FormControl;
+  actors!:FormControl;
+  audi_ids!:FormControl;
+  
+ 
   constructor(
     private acRoute:ActivatedRoute,
     private movService:MovieServices,
@@ -27,16 +34,26 @@ export class AdminAddChennaiComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.movieId = new FormControl();
     this.name = new FormControl();
-    this.language = new FormControl();
     this.genre = new FormControl();
     this.image_url = new FormControl();
+    this.language = new FormControl();
+    this.duration = new FormControl();
+    this.rating = new FormControl();
+    this.actors = new FormControl();
+    this.audi_ids = new FormControl();
 
     this.addMovForm = new FormGroup({
+      'movieId':this.movieId,
       'name' : this.name,
-      'language' : this.language,
       'genre' : this.genre,
-      'image_url' : this.image_url
+      'image_url' : this.image_url,
+      'language' : this.language,
+      'duration':this.duration,
+      'rating':this.rating,
+      'actors':this.actors,
+      'audi_ids':this.audi_ids
     });
   }
   addMovie(){

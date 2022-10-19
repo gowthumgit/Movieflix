@@ -16,8 +16,9 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link text-light" routerLink="/home/admchennai">Movies <span
+                <a class="nav-link text-light" routerLink="/home/admaddchennai">Add Movies <span
                         class="sr-only">(current)</span></a>
+
             </li>
             <li class="nav-item dropdown text-white">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
@@ -32,7 +33,7 @@
                 <hr class="dropdown-divider">
             </li>
             <a class="dropdown-item" href="#">Show More</a>
-            
+
     </div>
 
     </li>
@@ -100,19 +101,24 @@
     <h2>Recommended Movies</h2>
 </div>
 <div class="row border-0" style=" text-align: center;">
-    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies;let i = index">
-        <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">{{mov.name}}</h5>
-            <p class="card-text">{{mov.genre}}</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                
-                <a class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/admeditchennai',mov._id]">Edit <span class="sr-only">(current)</span></a>
-                <!-- <a class="nav-link text-light" >Admin <span class="sr-only">(current)</span></a> -->
-                <button type="button" class="btn btn-danger" (click)="removemovie(mov,i)">Delete</button>
-                
+    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies.slice().reverse(); let i = index;">
+        <div *ngIf="i<12" let>
+            
+            <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
+            <div class="card-body border-0">
+                <h5 class="card-title">{{mov.name}}</h5>
+                <p class="card-text">{{mov.genre}}</p>
+            </div>
+
+            <div class="card-footer">
+                <div class="btn-group">
+
+                    <a class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/admeditchennai',mov._id]">Edit
+                        <span class="sr-only">(current)</span></a>
+                    <!-- <a class="nav-link text-light" >Admin <span class="sr-only">(current)</span></a> -->
+                    <button type="button" class="btn btn-danger" (click)="removemovie(mov,(movies.length-i+1))">Delete</button>
+
+                </div>
             </div>
         </div>
         <br>

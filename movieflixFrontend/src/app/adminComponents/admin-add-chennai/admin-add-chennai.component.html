@@ -13,6 +13,17 @@
             <div class="col-md-6">
                 <form novalidate [formGroup]= "addMovForm">
                     <div class="form-group">
+                        <label for="movieId">Movie Id </label>
+                        <input type="text" name="movieId" class="form-control" 
+                                      formControlName="movieId" 
+                          [ngClass]="{ 'is-invalid':movieId.errors && (movieId.touched || movieId.dirty),'is-valid' :movieId.valid}">
+                      <div class="invalid-feedback">
+                          <strong *ngIf = "movieId.errors?.['required']">Movie Id is required </strong>
+                          
+                      </div>
+                      </div>
+                    
+                    <div class="form-group">
                       <label for="name">Name </label>
                       <input type="text" name="name" class="form-control" 
                                     formControlName="name" 
@@ -21,11 +32,6 @@
                         <strong *ngIf = "name.errors?.['required']">Name is required </strong>
                         
                     </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="language">Language </label>
-                        <input type="text" name="language" class="form-control"
-                                    formControlName="language" >
                     </div>
                     <div class="form-group">
                         <label for="genre">Genre</label>
@@ -37,6 +43,33 @@
                         <input type="text" name="image_url" class="form-control"
                                     formControlName="image_url">
                     </div>
+                    <div class="form-group">
+                        <label for="language">Language </label>
+                        <input type="text" name="language" class="form-control"
+                                    formControlName="language" >
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" name="duration" class="form-control"
+                                    formControlName="duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input type="text" name="rating" class="form-control"
+                                    formControlName="rating">
+                    </div>
+                    <div class="form-group">
+                        <label for="actors">Actors</label>
+                        <input type="text" name="actors" class="form-control"
+                                    formControlName="actors">
+                    </div>
+                    <div class="form-group">
+                        <label for="audi_ids">Audi Ids</label>
+                        <input type="text" name="audi_ids" class="form-control"
+                                    formControlName="audi_ids">
+                    </div>
+                    
+                    
                     <button type='submit' [disabled] = "addMovForm.invalid" 
                       (click)= "addMovie()" class="btn btn-primary">Submit</button>
                     <button type="button"  (click)= "addMovForm.reset()" class="btn btn-default">Reset</button>

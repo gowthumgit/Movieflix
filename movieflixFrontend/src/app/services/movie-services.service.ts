@@ -28,7 +28,7 @@ export class MovieServices {
 
   //to create/add new movie
   addMovie(movie : Movie):Observable<any>{
-      let url = `${this.uri}/addMovie`;
+      let url = `${this.uri}`;
       return this.http.post(url,movie).pipe(catchError(this.errorMgmt));
   }
 
