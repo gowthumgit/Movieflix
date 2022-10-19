@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Add Movie</h4>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert"
+        *ngIf= "formSubmitted">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Bingo!!!!!Movie add successfully.....</strong>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form novalidate [formGroup]= "addMovForm">
+                    <div class="form-group">
+                      <label for="name">Name </label>
+                      <input type="text" name="name" class="form-control" 
+                                    formControlName="name" 
+                        [ngClass]="{ 'is-invalid':name.errors && (name.touched || name.dirty),'is-valid' :name.valid}">
+                    <div class="invalid-feedback">
+                        <strong *ngIf = "name.errors?.['required']">Name is required </strong>
+                        
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language </label>
+                        <input type="text" name="language" class="form-control"
+                                    formControlName="language" >
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" name="genre" class="form-control"
+                                    formControlName="genre">
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">Image URL</label>
+                        <input type="text" name="image_url" class="form-control"
+                                    formControlName="image_url">
+                    </div>
+                    <button type='submit' [disabled] = "addMovForm.invalid" 
+                      (click)= "addMovie()" class="btn btn-primary">Submit</button>
+                    <button type="button"  (click)= "addMovForm.reset()" class="btn btn-default">Reset</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    <strong>addMovForm : JSON</strong>
+                </label>
+                <pre class="alert alert-dark" role="alert">
+                    {{addMovForm.value | json}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
+

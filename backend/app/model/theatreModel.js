@@ -18,6 +18,10 @@ var schema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    showTime:{
+        type:Array,
+
+    },
     audis :
     {
         type:Array,

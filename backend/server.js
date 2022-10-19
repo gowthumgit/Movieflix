@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors=require('cors')
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose')
 path = require('path');
-cors = require('cors');
+
 
 mongoose.Promise = global.Promise;
 
@@ -21,6 +22,8 @@ mongoose.connect(dbConfig.url,{
 });
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -51,8 +54,6 @@ app.listen(7070,function(){
 app.get('/',(req,res)=>{
     res.send("message:Hello Multiplex Node Express");
 });
-app.use(bodyParser.json());
-app.use(cors());
 
 
 app.post('/display',(req,res)=>{

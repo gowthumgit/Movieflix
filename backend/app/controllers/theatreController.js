@@ -3,7 +3,7 @@ const TheatreModel = require('../model/theatreModel');
 //create and save a new user
 
 exports.create = async (req,res) => {
-    if(!req.body.theatreId && !req.body.theatreName && !req.body.theatreCapacity && !req.body.theatreType && !req.body.audis){
+    if(!req.body.theatreId && !req.body.theatreName && !req.body.theatreCapacity && !req.body.theatreType &&!req.body.showTime && !req.body.audis){
         res.status(400).send({message:"Content cannot be empty!!!"});
     }
 
@@ -12,6 +12,7 @@ exports.create = async (req,res) => {
         theatreName :req.body.theatreName,
         theatreCapacity :req.body.theatreCapacity,
         theatreType :req.body.theatreType,
+        showTime:req.body.showTime,
         audis :req.body.audis,
        
     });

@@ -2,44 +2,42 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
 import { catchError,map } from 'rxjs/operators';
-import { Movie } from '../models/movie';
+import { Theatre } from '../models/theatre';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class MovieServices {
+export class TheatreService {
 
-
-  //main upi url to call express api
-
-  uri = 'http://localhost:7070/movie';
+  uri = 'http://localhost:7070/theatre';
 
   constructor(private http:HttpClient) { }
 
-  //to get list of movies
-  getMovies():Observable<any>{
+  //to get list of theatres
+  getTheatres():Observable<any>{
       return this.http.get(`${this.uri}`);
   }
 
-  //to get movie details for single movie using id
-  getMovieById(movid: any):Observable<any>{
-    return this.http.get(`${this.uri}/${movid}`).pipe(catchError(this.errorMgmt));
+  //to get theatre details for single theatre using id
+  getTheatreById(thid: any):Observable<any>{
+    return this.http.get(`${this.uri}/${thid}`).pipe(catchError(this.errorMgmt));
   }
 
-  //to create/add new movie
-  addMovie(movie : Movie):Observable<any>{
-      let url = `${this.uri}/addMovie`;
-      return this.http.post(url,movie).pipe(catchError(this.errorMgmt));
+  //to create/add new theatre
+  addTheatre(theatre : Theatre):Observable<any>{
+      let url = `${this.uri}`;
+      return this.http.post(url,theatre).pipe(catchError(this.errorMgmt));
   }
 
-  //update Movie
-  updateMovie(id: any,movie: Movie) :Observable<any>{
+  //update Theatre
+  updateTheatre(id: any,theatre: Theatre) :Observable<any>{
     let url = `${this.uri}/${id}`;
-    return this.http.patch(url,movie).pipe(catchError(this.errorMgmt));
+    return this.http.patch(url,theatre).pipe(catchError(this.errorMgmt));
   }
 
-    //delete Movie
-    deleteMovie(id: any) :Observable<any>{
+    //delete Theatre
+    deleteTheatre(id: any) :Observable<any>{
       let url = `${this.uri}/${id}`;
       return this.http.delete(url).pipe(catchError(this.errorMgmt));
     }
@@ -59,5 +57,4 @@ export class MovieServices {
         return errorMessage;
       })
     }
-
 }

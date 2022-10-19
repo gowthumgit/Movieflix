@@ -19,10 +19,9 @@
                 <a class="nav-link text-light" routerLink="/home/admchennai">Movies <span
                         class="sr-only">(current)</span></a>
             </li>
-
             <li class="nav-item dropdown text-white">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Chennai</a>
+                    aria-haspopup="true" aria-expanded="false">Admin Chennai</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
             <li><a class="dropdown-item" routerLink="/home/bangalore">Bangalore</a></li>
             <li><a class="dropdown-item" routerLink="/home/chennai">Chennai</a></li>
@@ -33,7 +32,7 @@
                 <hr class="dropdown-divider">
             </li>
             <a class="dropdown-item" href="#">Show More</a>
-
+            
     </div>
 
     </li>
@@ -53,8 +52,6 @@
 <div class="top_space">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-
-
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -83,7 +80,6 @@
                 <img class="d-block w-100"
                     src="https://www.cinepolisindia.com/content/img/slider/20221047956808-prin.jpg" alt="Second slide">
             </div>
-
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,240 +90,39 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
 </div>
+
+
+
 
 
 <div class="mx-5 mt-4" style=" text-align: center;">
     <h2>Recommended Movies</h2>
-    <br>
 </div>
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/godfather-et00325579-1664779116.jpg"
-            alt="Card image cap">
+<div class="row border-0" style=" text-align: center;">
+    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies;let i = index">
+        <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
         <div class="card-body border-0">
-            <h5 class="card-title">God Father</h5>
-            <p class="card-text">Action/Drama</p>
+            <h5 class="card-title">{{mov.name}}</h5>
+            <p class="card-text">{{mov.genre}}</p>
         </div>
         <div class="card-footer">
             <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
+                
+                <a class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/admeditchennai',mov._id]">Edit <span class="sr-only">(current)</span></a>
+                <!-- <a class="nav-link text-light" >Admin <span class="sr-only">(current)</span></a> -->
+                <button type="button" class="btn btn-danger" (click)="removemovie(mov,i)">Delete</button>
+                
             </div>
         </div>
-
-
-    </div>
-
-
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/ponniyin-selvan--part-1-et00323897-1664271205.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Ponniyin Selvan</h5>
-            <p class="card-text">Adventure/Drama/Historical</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-        </div>
-    </div>
-   
-
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kantara-et00330541-1664620755.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Kantara</h5>
-            <p class="card-text">Adventure/Drama/hriller.</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/doctor-g-et00305720-1663573294.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Doctor G</h5>
-            <p class="card-text">Comedy/Drama</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-
-<br><br>
-
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/black-adam-et00117411-1665552700.jpg"
-            alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">Black Adam</h5>
-            <p class="card-text">Action/Fantasy/Sci-Fi</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rorschach-et00337244-1665123291.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Rorschacchs</h5>
-            <p class="card-text">Action/Psycological/Thriller </p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/champion-et00326583-1665574855.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Champion</h5>
-            <p class="card-text">Action/Drama/Sports</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/vikram-vedha-et00319143-1663323973.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Vikram Vedha</h5>
-            <p class="card-text">Action/Comedy/Drama/Thriller</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-        </div>
-
+        <br>
 
     </div>
 </div>
 <br><br>
-
-
-
-
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/halloween-ends-et00337775-1661069507.jpg"
-            alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">Hallowen Ends</h5>
-            <p class="card-text">Horror/Thriller</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-        </div>
-
-
-    </div>
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rorschach-et00337244-1665123291.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Guru Shisyaru</h5>
-            <p class="card-text">Comedy/Drama </p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/prince-et00331045-10-06-2022-05-11-06.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Prince</h5>
-            <p class="card-text">Comedy/Drama</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/sardar-et00310546-1665572029.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Sardar</h5>
-            <p class="card-text">Action/Thriller</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary  mr-3 float-left">Edit </a>
-                <a href="#" class="btn btn-danger  float-right">Delete </a>
-            </div>
-        </div>
-
-
-    </div>
-</div>
 <br><br>
 
-<!-- Footer -->
+
 <footer class="page-footer font-small pt-4 text-light" style="background-color: rgb(51, 51, 56);">
     <ul class="nav justify-content-center  pb-3 mb-3">
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
@@ -340,7 +135,6 @@
     <div class="page-content page-container  mx-auto" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center mx-auto">
-
                 <div class="col-md-6 grid-margin stretch-card mx-auto ">
                     <div class="mx-auto card-footer">
                         <div class="mx-auto">
@@ -382,13 +176,10 @@
                                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                             style="border-radius: 30%;height :40px; width:40px" alt=""></i></button>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </footer>
-<!-- Footer -->

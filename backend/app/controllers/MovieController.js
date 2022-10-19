@@ -1,58 +1,58 @@
-/*const UserModel = require('../model/user');
+/*const movieModel = require('../model/movie');
 
-//create and save a new user
+//create and save a new movie
 
 exports.create = async (req,res) => {
     if(!req.body.email && !req.body.firstName && !req.body.lastName && !req.body.phone){
         res.status(400).send({message:"Content cannot be empty!!!"});
     }
 
-    const user = new UserModel({
+    const movie = new movieModel({
         email:req.body.email,
         firstName :req.body.firstName,
         lastName : req.body.lastName,
         phone : req.body.phone
     });
 
-    await user.save().then(data =>{
+    await movie.save().then(data =>{
         res.send({
-            message: "User Added Successfully",
-            user : data
+            message: "movie Added Successfully",
+            movie : data
         });
     }).catch(err=>{
         res.status(500).send({
-            message: err.message || "User Not Added Successfully",
+            message: err.message || "movie Not Added Successfully",
         });
     });
-}; //end of create user
+}; //end of create movie
 
-//Retrieve all users from the database
+//Retrieve all movies from the database
 exports.findAll = async (req,res) =>{
     try{
-        const users = await UserModel.find();
-        res.status(200).json(users);
+        const movies = await movieModel.find();
+        res.status(200).json(movies);
     }catch{
         res.status(404).json({message:error.message})
     }
 }
 
-//Retreive a single user with an id
+//Retreive a single movie with an id
 exports.findOne = async (req,res) =>{
     try{
-        const user = await UserModel.findById(req.params.id);
-        res.status(200).json(user);
+        const movie = await movieModel.findById(req.params.id);
+        res.status(200).json(movie);
     }catch{
         res.status(404).json({message:error.message})
     }
 }
 
-//delete user by id
+//delete movie by id
 exports.destroy = async (req,res) =>{
-    await UserModel.findByIdAndRemove(req.params.id).then(data =>{
+    await movieModel.findByIdAndRemove(req.params.id).then(data =>{
         if(!data){
-            res.status(404).json({message:`User not found`});
+            res.status(404).json({message:`movie not found`});
         }else{
-            res.status(200).json({message:`User found and deleted`});
+            res.status(200).json({message:`movie found and deleted`});
         }
     }).catch(err => {
         res.status(500).send({
@@ -61,19 +61,19 @@ exports.destroy = async (req,res) =>{
     });
 };
 
-//update user by id 
+//update movie by id 
 
 exports.update = async(req,res) =>{
     if(!req.body){
         res.status(400).send({message:"Data to update cannot be empty!!!"});
     }
 
-    const userid = req.params.id;
+    const movieid = req.params.id;
 
-    await UserModel.findByIdAndUpdate(userid,req.body,{ userFindAndModify : false})
+    await movieModel.findByIdAndUpdate(movieid,req.body,{ movieFindAndModify : false})
                                      .then(data =>{
                                         if(!data){
-                                            res.status(404).send({message:`User not found`});
+                                            res.status(404).send({message:`movie not found`});
                                         }else{
                                             res.send({message:"Data updated successfully!!!"})
                                         }
@@ -90,7 +90,7 @@ exports.update = async(req,res) =>{
 
 const MovieModel = require('../model/movieModel');
 
-//create and save a new user
+//create and save a new movie
 
 exports.create = async (req,res) => {
    /* if(!req.body.email && !req.body.firstName && !req.body.lastName && !req.body.phone){
@@ -101,6 +101,7 @@ exports.create = async (req,res) => {
         movieId:req.body.movieId,
         name :req.body.name,
         genre : req.body.genre,
+        image_url:req.body.image_url,
         language:req.body.language,
         duration : req.body.duration,
         rating : req.body.rating,
@@ -119,9 +120,9 @@ exports.create = async (req,res) => {
             message: err.message || "Movie Not Added Successfully",
         });
     });
-}; //end of create user
+}; //end of create movie
 
-//Retrieve all users from the database
+//Retrieve all movies from the database
 exports.findAll = async (req,res) =>{
     try{
         const movies = await MovieModel.find();
@@ -131,7 +132,7 @@ exports.findAll = async (req,res) =>{
     }
 }
 
-//Retreive a single user with an id
+//Retreive a single movie with an id
 exports.findOne = async (req,res) =>{
     try{
         const movie = await MovieModel.findById(req.params.id);
@@ -141,7 +142,7 @@ exports.findOne = async (req,res) =>{
     }
 }
 
-//delete user by id
+//delete movie by id
 exports.destroy = async (req,res) =>{
     await MovieModel.findByIdAndRemove(req.params.id).then(data =>{
         if(!data){
@@ -156,7 +157,7 @@ exports.destroy = async (req,res) =>{
     });
 };
 
-//update user by id 
+//update movie by id 
 
 exports.update = async(req,res) =>{
     if(!req.body){
@@ -165,7 +166,7 @@ exports.update = async(req,res) =>{
 
     const movieId = req.params.id;
 
-    await MovieModel.findByIdAndUpdate(userid,req.body,{ userFindAndModify : false})
+    await MovieModel.findByIdAndUpdate(movieId,req.body,{ movieFindAndModify : false})
                                      .then(data =>{
                                         if(!data){
                                             res.status(404).send({message:`Movie not found`});

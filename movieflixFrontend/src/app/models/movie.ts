@@ -1,7 +1,8 @@
 export class Movie{
 	movieId : string='';
     name : string='';
-    genre : String='';
+    genre : string='';
+    image_url:String='';
     language : String='';
     duration : Number=0;
     rating : Number=0;

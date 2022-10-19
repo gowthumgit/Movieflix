@@ -9,6 +9,9 @@ import { HyderbadHomeComponent } from './homeComponents/hyderbad-home/hyderbad-h
 import { MumbaiHomeComponent } from './homeComponents/mumbai-home/mumbai-home.component';
 import { AdminMoviesComponent } from './adminComponents/admin-movies/admin-movies.component';
 import { AdminChennaiMoviesComponent } from './adminComponents/admin-chennai-movies/admin-chennai-movies.component';
+import { AdminEditChennaiComponent } from './adminComponents/admin-edit-chennai/admin-edit-chennai.component';
+import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/admin-add-chennai.component';
+import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 
 
 
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path : 'home/mumbai',component:MumbaiHomeComponent},
   {path : 'home/movies',component:AdminMoviesComponent},
   {path : 'home/admchennai',component:AdminChennaiMoviesComponent},
+  {path : 'home/admeditchennai/:id',component:AdminEditChennaiComponent,},
+  {path : 'home/admaddchennai',component:AdminAddChennaiComponent},
+  {path : 'home/theatre/',component:TheatreCompComponent},
   
 ];
 

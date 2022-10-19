@@ -11,6 +11,12 @@ import { HyderbadHomeComponent } from './homeComponents/hyderbad-home/hyderbad-h
 import { DefaultHomeComponent } from './homeComponents/default-home/default-home.component';
 import { AdminChennaiMoviesComponent } from './adminComponents/admin-chennai-movies/admin-chennai-movies.component';
 import { AdminMoviesComponent } from './adminComponents/admin-movies/admin-movies.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminEditChennaiComponent } from './adminComponents/admin-edit-chennai/admin-edit-chennai.component';
+
+import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/admin-add-chennai.component';
+import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,17 @@ import { AdminMoviesComponent } from './adminComponents/admin-movies/admin-movie
     HyderbadHomeComponent,
     DefaultHomeComponent,
     AdminChennaiMoviesComponent,
-    AdminMoviesComponent
+    AdminMoviesComponent,
+    AdminEditChennaiComponent,
+  
+    AdminAddChennaiComponent,
+       TheatreCompComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
