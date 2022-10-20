@@ -46,12 +46,27 @@
 
 
 
+<div class="top_space">
+
+    <div class="card-body" style=" text-align: center;">
+        <h1>{{name}}</h1>
+    </div>
+
+    <div class="card w-75" style="background-color:#D0D3D4 " *ngFor="let theatre of Theatre; let i =index">
+        <div class="card-body">
+            <h5 class="card-title">{{theatre.theatreName}}:{{theatre.theatreType}}</h5>
+            <p class="card-text">[M-Ticket] [Food & Beverage]</p>
+            <p class="card-text"></p>
+
+            <button type="button " class="btn btn-primary btn-md margin-left "  routerLink="/home/seat">{{theatre.showTime[0]}}</button>
+            <button type="button " class="btn btn-primary btn-md margin-left ">{{theatre.showTime[1]}}</button>
 
 
+            <!-- <a href="#" class="btn btn-primary" routerLink= "home/theatre/seat">11:00 AM</a> -->
+        </div>
+    </div>
 
-
-
-
+</div>
 
 
 
@@ -122,6 +137,3 @@
     </div>
 </footer>
 <!-- Footer -->
-
-
-

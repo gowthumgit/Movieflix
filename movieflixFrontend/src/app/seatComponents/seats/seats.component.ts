@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+/* import { Component, OnInit } from '@angular/core';
 import { MockData } from '../mock-data/mock-seats-data';
-import { Seat } from '../model/Seat';
-import { SeatService } from '../seat.service';
+import { Seat } from 'src/app/models/seat';
+import { SeatService } from 'src/app/services/seat.service';
 
 @Component({
   selector: 'app-seats',
@@ -26,3 +26,4 @@ export class SeatsComponent implements OnInit {
  
  
  }
+ */

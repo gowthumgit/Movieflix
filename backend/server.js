@@ -9,8 +9,6 @@ path = require('path');
 mongoose.Promise = global.Promise;
 
 
-
-
 // connection to mongodb using mongoose
 mongoose.connect(dbConfig.url,{
     useNewUrlParser :true
@@ -28,6 +26,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(bodyParser.json())
+
 
 const AdminRoute = require('./app/routes/AdminRoutes')
 app.use('/admin',AdminRoute)

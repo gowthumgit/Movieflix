@@ -65,6 +65,7 @@ export class AdminAddChennaiComponent implements OnInit {
         complete :()=>{
           this.router.navigateByUrl('/movie');
           console.log('Movie added successfully')
+          
         },
         error : (e :any) =>{
           console.log(e)

@@ -112,7 +112,7 @@
             <div class="card-footer">
                 <div class="btn-group">
 
-                    <button type="button" class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/theatre',mov._id]">Book now</button>
+                    <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/home/theatre' (click)="passMovieName(mov.name)">Book now</button>
                     
                 </div>
             </div>

@@ -13,7 +13,7 @@ import { Movie } from 'src/app/models/movie';
 
 export class BangaloreHomeComponent implements OnInit {
   @Input() moviename=[];
-
+  
 
   Moviename=Movie;
 
@@ -40,4 +40,11 @@ export class BangaloreHomeComponent implements OnInit {
       })
     }
   }
+
+  passMovieName(name : any){
+   this.movService.setName(name);
+  }
+
+
+
 }

@@ -15,22 +15,26 @@ import { Movie } from 'src/app/models/movie';
 })
 
 export class TheatreCompComponent implements OnInit {
+@Input() 
 
 
-
+  name:any;
+  movies: Movie[]=[];
   constructor(private theatService:TheatreService, private movService:MovieServices, private acRoute:ActivatedRoute,private router:Router) { 
-  
-    this.getAllTheatres();
-  
+  this.getAllTheatres();
+    this.getName()
+    
   }
 
-  movies:any=[];
+  // movies:any=[];
 
-theatre: any=[];
+Theatre: any=[];
+Movie:any=[];
 
 
 
   ngOnInit(): void {
+    
   
 
   }
@@ -38,17 +42,19 @@ theatre: any=[];
 
 getAllTheatres(){
   this.theatService.getTheatres().subscribe((thdata) =>{
-    this.theatre = thdata;
+    this.Theatre = thdata;
   })
 }
-getAllMovies(){
-  this.movService.getMovies().subscribe((movdata)=>{
-    this.movies=movdata;
-    console.log(movdata);
-  })
-}
+
 removeTheatre(){
   
+}
+
+
+
+getName()
+{
+  this.name=this.movService.name;
 }
 }
 

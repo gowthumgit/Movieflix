@@ -14,11 +14,12 @@ import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/ad
 import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
-
+import { SeatComponent } from './seatComponents/seat/seat.component';
+// import { SeatsComponent } from './seatComponents/seats/seats.component';
 
 
 const routes: Routes = [
-  {path : 'login',component:LoginComponent},
+  {path : '',component:LoginComponent},
   {path : 'signup', component:SignupComponent},
   {path : 'home',component:DefaultHomeComponent},
   {path : 'home/bangalore',component:BangaloreHomeComponent},
@@ -30,7 +31,9 @@ const routes: Routes = [
   {path : 'home/admchennai',component:AdminChennaiMoviesComponent},
   {path : 'home/admeditchennai/:id',component:AdminEditChennaiComponent,},
   {path : 'home/admaddchennai',component:AdminAddChennaiComponent},
-  {path : 'home/theatre/',component:TheatreCompComponent},
+  {path : 'home/theatre',component:TheatreCompComponent},
+  // {path : 'home/seat',component:SeatsComponent},
+
   
 ];
 
