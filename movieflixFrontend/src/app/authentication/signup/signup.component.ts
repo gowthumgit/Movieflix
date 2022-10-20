@@ -21,12 +21,6 @@ export class SignupComponent implements OnInit {
   userBalance!: FormControl;
   userPassword!:FormControl;
   
-  
-  
-
-
-
-
   type : string ="password";
   isText : boolean = false;
   eyeIcon : string ="fa-eye-slash";
@@ -58,7 +52,7 @@ export class SignupComponent implements OnInit {
     this.formSubmitted = true;
     if(window.confirm("are you sure???")){
       let useid = this.acRoute.snapshot.paramMap.get('useid');
-      this.useService.addMovie(this.addUseForm.value).subscribe({
+      this.useService.addUser(this.addUseForm.value).subscribe({
         complete :()=>{
           this.router.navigateByUrl('/user');
           console.log('User added successfully')

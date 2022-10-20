@@ -40,7 +40,10 @@ export class AdminEditChennaiComponent implements OnInit {
 
     this.updateMovie();
     let id = this.acRoute.snapshot.paramMap.get('movid');
+    
     this.getMovie(id);
+    console.log(id);
+    console.log("print statement");
 
   }
   updateMovie() {

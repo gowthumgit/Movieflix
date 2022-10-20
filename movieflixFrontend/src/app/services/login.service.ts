@@ -16,30 +16,30 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
-  //to get list of movies
-  getMovies():Observable<any>{
+  //to get list of User
+  getUsers():Observable<any>{
       return this.http.get(`${this.uri}`);
   }
 
   //to get user details for single user using id
-  getMovieById(useid: any):Observable<any>{
+  getUserById(useid: any):Observable<any>{
     return this.http.get(`${this.uri}/${useid}`).pipe(catchError(this.errorMgmt));
   }
 
   //to create/add new user
-  addMovie(user : User):Observable<any>{
+  addUser(user : User):Observable<any>{
       let url = `${this.uri}`;
       return this.http.post(url,user).pipe(catchError(this.errorMgmt));
   }
 
   //update User
-  updateMovie(id: any,user: User) :Observable<any>{
+  updateUser(id: any,user: User) :Observable<any>{
     let url = `${this.uri}/${id}`;
     return this.http.patch(url,user).pipe(catchError(this.errorMgmt));
   }
 
     //delete User
-    deleteMovie(id: any) :Observable<any>{
+    deleteUser(id: any) :Observable<any>{
       let url = `${this.uri}/${id}`;
       return this.http.delete(url).pipe(catchError(this.errorMgmt));
     }

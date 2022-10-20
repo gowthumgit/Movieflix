@@ -108,13 +108,14 @@
             <div class="card-body border-0">
                 <h5 class="card-title">{{mov.name}}</h5>
                 <p class="card-text">{{mov.genre}}</p>
+                
             </div>
 
             <div class="card-footer">
                 <div class="btn-group">
 
                     <a class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/admeditchennai',mov._id]">Edit
-                        <span class="sr-only">(current)</span></a>
+                        </a>
                     <!-- <a class="nav-link text-light" >Admin <span class="sr-only">(current)</span></a> -->
                     <button type="button" class="btn btn-danger" (click)="removemovie(mov,(movies.length-i+1))">Delete</button>
 

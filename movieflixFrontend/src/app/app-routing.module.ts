@@ -29,7 +29,7 @@ const routes: Routes = [
   {path : 'home/mumbai',component:MumbaiHomeComponent},
   {path : 'home/movies',component:AdminMoviesComponent},
   {path : 'home/admchennai',component:AdminChennaiMoviesComponent},
-  {path : 'home/admeditchennai/:id',component:AdminEditChennaiComponent,},
+  {path : 'home/admeditchennai/:movid',component:AdminEditChennaiComponent,},
   {path : 'home/admaddchennai',component:AdminAddChennaiComponent},
   {path : 'home/theatre',component:TheatreCompComponent},
   // {path : 'home/seat',component:SeatsComponent},
