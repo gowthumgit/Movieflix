@@ -17,6 +17,8 @@ import { AdminEditChennaiComponent } from './adminComponents/admin-edit-chennai/
 
 import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/admin-add-chennai.component';
 import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-c
     AdminEditChennaiComponent,
   
     AdminAddChennaiComponent,
-       TheatreCompComponent
+       TheatreCompComponent,
+       LoginComponent,
+       SignupComponent
   ],
   imports: [
     BrowserModule,

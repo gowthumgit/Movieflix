@@ -1,0 +1,88 @@
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3" >
+                <div class="panel border bg-white" >
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Sign Up</h3>
+                    </div>
+                    <div class="panel-body p-3" >
+                        <form novalidate [formGroup]= "addUseForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" placeholder="User ID" class="form-control" 
+                                    formControlName="userId"
+                                    [ngClass]="{ 'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
+                                    <div class="invalid-feedback">
+                                        <strong *ngIf = "userId.errors?.['required']">User Id is required </strong>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" placeholder="User Email" class="form-control" 
+                                    formControlName="userEmail"
+                                    [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
+                                    <div class="invalid-feedback">
+                                        <strong *ngIf = "userEmail.errors?.['required']">User Email is required </strong>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input type="text" placeholder="userLocation" class="form-control" 
+                                    formControlName="userLocation">
+                                    <div class="invalid-feedback">
+                                        <strong *ngIf = "userLocation.errors?.['required']">User Location is required </strong>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input [type]="type" placeholder="UserPassword" class="form-control" 
+                                    formControlName="userPassword">
+                                    <div class="invalid-feedback">
+                                        <strong *ngIf = "userPassword.errors?.['required']">User Password is required </strong>
+                                        <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input [type]="type" placeholder="Re-Enter Password">
+                                    <div class="invalid-feedback">
+                                        <strong *ngIf = "userPassword.errors?.['required']">Re enter password is required </strong>
+                                        <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
+                                    </div>
+
+                                   
+                                </div>
+                            </div>
+                            <button type='submit' [disabled] = "addUseForm.invalid" 
+                            (click)= "addUser()" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
+                         
+                            <!-- <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button> -->
+                            <div class="text-center pt-4 text-muted">Already have an account? <a id="forget" routerLink="/login">Login</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

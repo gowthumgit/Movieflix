@@ -6,17 +6,28 @@ var schema=new mongoose.Schema({
         required:true,
         unique:true
     },
-    userLocation:{
+    userEmail:{
         type:String,
         required:true,
+        unique:true
+    },
+    userPassword:{
+        type:String,
+        required:true,
+        
+    },
+    
+    userLocation:{
+        type:String,
+        
     },
     userLanguage :{
         type:String,
-        required:true,
+        
     },
     userBalance :{
         type:Number,
-        required:true, 
+        
     }
   
 });

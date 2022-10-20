@@ -96,29 +96,25 @@
 
 </div>
 
-
-<div class="mx-5 mt-4">
+<div class="mx-5 mt-4" style=" text-align: center;">
     <h2>Recommended Movies</h2>
 </div>
-
-
 <div class="row border-0" style=" text-align: center;">
-    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies;let i = index">
-        <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">{{mov.name}}</h5>
-            <p class="card-text">{{mov.genre}}</p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                
+    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies.slice().reverse(); let i = index;">
+        <div *ngIf="i<12" let>
             
-                <!-- <a class="nav-link text-light" >Admin <span class="sr-only">(current)</span></a> -->
-            
-            
-            
-                <button type="button" class="btn btn-primary  mr-3 float-left" ><app-theatre-comp>[Moviename]="{{mov.name}}"</app-theatre-comp>Book now</button>
-                
+            <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
+            <div class="card-body border-0">
+                <h5 class="card-title">{{mov.name}}</h5>
+                <p class="card-text">{{mov.genre}}</p>
+            </div>
+
+            <div class="card-footer">
+                <div class="btn-group">
+
+                    <button type="button" class="btn btn-primary  mr-3 float-left" [routerLink]="['/home/theatre',mov._id]">Book now</button>
+                    
+                </div>
             </div>
         </div>
         <br>
