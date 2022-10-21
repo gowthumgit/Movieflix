@@ -73,6 +73,12 @@ export class AdminAddChennaiComponent implements OnInit {
       }); 
     }
 }
+completeLogin(){   
+  
+  this.addMovForm.reset();  
+  // calling this method will reset the method
+     
+  }
 
 
 
