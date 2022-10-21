@@ -17,7 +17,9 @@
                                     <input formControlName="username" type="text" placeholder="UserId or Useremail">
                                 </div>
                             </div>
-                            <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*UserId or UserEmail is required</small>
+                            <small
+                                *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+                                class="text-danger">*UserId or UserEmail is required</small>
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-lock p-2"></span>
@@ -25,12 +27,16 @@
                                     <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
                                 </div>
                             </div>
-                            <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*Password is required</small>
+                            <small
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                                class="text-danger">*Password is required</small>
                             <div class="form-inline fr mt-4">
                                 <a id="forget" class="font-weight-bold">Forget Password?</a>
                             </div>
-                            <button type="submit" routerLink="/home" class="btn btn-primary btn-block mt-4 w-100">Login</button>
-                            <div class="text-center pt-4 text-muted">Don't have an account?<a id="forget" routerLink="/signup">Sign Up </a> </div>
+                            <button type="submit" routerLink="/home/chennai"
+                                class="btn btn-primary btn-block mt-4 w-100">Login</button>
+                            <div class="text-center pt-4 text-muted">Don't have an account?<a id="forget"
+                                    routerLink="/signup">Sign Up </a> </div>
                         </form>
                     </div>
                 </div>

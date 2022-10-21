@@ -12,16 +12,19 @@
                     <div class="panel-body p-3" >
                         <form novalidate [formGroup]="addUseForm">
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field ">
                                     <span class="fa fa-user p-2"></span>
                                     <input type="text" name="userId"  placeholder="User ID" class="form-control" formControlName="userId"
                                     [ngClass]="{'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
                                     <div class="invalid-feedback">
                                         <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
                                     </div>
-                                   
                                 </div>
+                           
+                               
                             </div>
+                            
+
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
@@ -29,7 +32,7 @@
                                     formControlName="userEmail"
                                     [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
                                     <div class="invalid-feedback">
-                                        <strong *ngIf = "userEmail.errors?.['required']">User Email is required </strong>
+                                        <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
                                     </div>
                                    
                                 </div>
@@ -38,12 +41,14 @@
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-user p-2"></span>
-                                    <input type="text" placeholder="userLocation" class="form-control" 
-                                    formControlName="userLocation">
-                                    <div class="invalid-feedback">
-                                        <strong *ngIf = "userLocation.errors?.['required']">User Location is required </strong>
-                                    </div>
-
+                                    <input type="text" name="userLocation"  placeholder="userLocation" class="form-control" formControlName="userLocation" 
+                    [ngClass]="{'is-invalid':userLocation.errors &&(userLocation .touched || userLocation .dirty),'is-valid':userLocation .valid}">
+                    <div class="invalid-feedback">
+                        <strong *ngIf="userLocation.errors?.['required']">userLocation is required</strong>
+                        <!-- <strong *ngIf="userLocation .errors?.['minlength']">uerLocation length is must be greater than {{userLocation.errors?.['minlength'].requiredLength}} character
+                            {{userLocation.errors?.['minlength'].requiredLength - userLocation.errors?.['minlength'].actualLength}}
+                            more characters required </strong> -->
+                    </div>
                                 </div>
                             </div>
                             
@@ -51,7 +56,7 @@
                                 <div class="input-field">
                                     <span class="fa fa-lock p-2"></span>
                                     <input [type]="type" placeholder="UserPassword" class="form-control" 
-                                    formControlName="userPassword">
+                                    formControlName="userPassword" formControlName="userPassword"  [ngClass]="{'is-invalid':userPassword.errors &&(userPassword .touched || userPassword .dirty),'is-valid':userPassword .valid}">
                                     <div class="invalid-feedback">
                                         <strong *ngIf = "userPassword.errors?.['required']">User Password is required </strong>
                                         <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
@@ -63,7 +68,9 @@
                             <div class="form-group pt-3">
                                 <div class="input-field">
                                     <span class="fa fa-lock p-2"></span>
-                                    <input [type]="type" placeholder="Re-Enter Password">
+                                    <input [type]="type" placeholder="Re-Enter Password" class="form-control" 
+                                    formControlName="userPassword" formControlName="userPassword"  [ngClass]="{'is-invalid':userPassword.errors &&(userPassword .touched || userPassword .dirty),'is-valid':userPassword .valid}">
+
                                     <div class="invalid-feedback">
                                         <strong *ngIf = "userPassword.errors?.['required']">Re enter password is required </strong>
                                         <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
@@ -76,7 +83,7 @@
                             (click)= "addUser()" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
                          
                             <!-- <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button> -->
-                            <div class="text-center pt-4 text-muted">Already have an account? <a id="forget" routerLink="/home/login">Login</a></div>
+                            <div class="text-center pt-4 text-muted">Already have an account? <a id="forget" routerLink="/login">Login</a></div>
                         </form>
                     </div>
                 </div>

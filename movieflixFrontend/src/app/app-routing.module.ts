@@ -15,11 +15,11 @@ import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-c
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SeatComponent } from './seatComponents/seat/seat.component';
-// import { SeatsComponent } from './seatComponents/seats/seats.component';
+import { SeatsComponent } from './seatComponents/seats/seats.component';
 
 
 const routes: Routes = [
-  {path : '',component:LoginComponent},
+  {path : 'login',component:LoginComponent},
   {path : 'signup', component:SignupComponent},
   {path : 'home',component:DefaultHomeComponent},
   {path : 'home/bangalore',component:BangaloreHomeComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
   {path : 'home/admeditchennai/:movid',component:AdminEditChennaiComponent,},
   {path : 'home/admaddchennai',component:AdminAddChennaiComponent},
   {path : 'home/theatre',component:TheatreCompComponent},
-  // {path : 'home/seat',component:SeatsComponent},
+  {path : 'admin',component:AdminMoviesComponent},
+  {path : 'home/seat',component:SeatsComponent},
 
   
 ];

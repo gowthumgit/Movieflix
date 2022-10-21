@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
@@ -35,6 +35,12 @@ export class SignupComponent implements OnInit {
     this.userLanguage = new FormControl();
     this.userBalance = new FormControl();
     this.userPassword= new FormControl();
+
+    this.userId=new FormControl('',[Validators.required]);
+    this.userEmail=new FormControl('',[Validators.required]);
+    this.userLocation = new FormControl('',[Validators.minLength(3),Validators.required]);
+    this.userPassword=new FormControl('',[Validators.required]);
+    
  
     this.addUseForm = new FormGroup({
       'userId':this.userId,

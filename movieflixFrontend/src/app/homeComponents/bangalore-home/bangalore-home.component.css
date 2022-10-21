@@ -1,24 +1,19 @@
 nav form
 {
-    width: 700px;
+    width: 900px;
 }
 .top_space{
   margin-top: 90px;
 }
   .navbar-brand{
    padding-top: 13px;
-    padding-left: 0px;
+    padding-left: 15px;
     margin-left: 50px;
     
   }
   .nav-right{
     float: right;
   }
-
-  .margin-rightt{
-    margin-right: 60px;
-   }
-  
   .ab{
     background-color:rgb(32, 27, 57);
   }
@@ -27,7 +22,7 @@ background-color: rgb(51,53,69) !important
 }
 
 .xy{
-margin-right: 50px !important;
+margin-right: 150px !important;
 }
 .x{
 margin-left: 100px;
@@ -96,7 +91,6 @@ body {
 
   min-width: 0;
   word-wrap: break-word;
-  
   
  
   

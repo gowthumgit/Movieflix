@@ -20,6 +20,7 @@ import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-c
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { CartComponent } from './cart/cart.component';
+import { UserDetailsComponent } from './userComponents/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CartComponent } from './cart/cart.component';
        TheatreCompComponent,
        LoginComponent,
        SignupComponent,
-       CartComponent
+       CartComponent,
+       UserDetailsComponent
   ],
   imports: [
     BrowserModule,

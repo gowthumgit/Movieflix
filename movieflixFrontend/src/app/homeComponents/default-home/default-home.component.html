@@ -16,12 +16,12 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link text-light" routerLink="/home/admchennai">Admin <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-light" routerLink="/home">Movies <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item dropdown text-white">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Chennai</a>
+                    aria-haspopup="true" aria-expanded="false">Location</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
             <li><a class="dropdown-item" routerLink="/home/bangalore">Bangalore</a></li>
             <li><a class="dropdown-item" routerLink="/home/chennai">Chennai</a></li>
@@ -36,7 +36,7 @@
     </div>
 
     </li>
-    <button class="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal">SignIn</button>
+    <button class="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal" routerLink='/login'>SignIn</button>
 
     </ul>
 
@@ -113,7 +113,7 @@
             <div class="card-footer">
                 <div class="btn-group">
 
-                    <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/home/theatre'
+                    <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/login'
                         (click)="passMovieName(mov.name)">Book now</button>
 
                 </div>
