@@ -41,8 +41,8 @@ export class BangaloreHomeComponent implements OnInit {
     }
   }
 
-  passMovieName(name : any){
-   this.movService.setName(name);
+  passMovie(movie : Movie){
+   this.movService.setMovie(movie);
   }
 
 

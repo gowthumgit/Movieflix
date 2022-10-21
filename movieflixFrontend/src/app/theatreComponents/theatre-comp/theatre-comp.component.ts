@@ -18,11 +18,11 @@ export class TheatreCompComponent implements OnInit {
 @Input() 
 
 
-  name:any;
+  movie!:Movie;
   movies: Movie[]=[];
   constructor(private theatService:TheatreService, private movService:MovieServices, private acRoute:ActivatedRoute,private router:Router) { 
   this.getAllTheatres();
-    this.getName()
+    this.getMovie()
     
   }
 
@@ -52,9 +52,9 @@ removeTheatre(){
 
 
 
-getName()
+getMovie()
 {
-  this.name=this.movService.name;
+  this.movie=this.movService.movie;
 }
 }
 

@@ -8,19 +8,21 @@ import { Movie } from '../models/movie';
   providedIn: 'root'
 })
 export class MovieServices {
- name: any;
+  movie!: Movie;
 
 
 
-  setName(name: any) {
-    this.name=name;
+  setMovie(movie: any) {
+    this.movie=movie;
    
   }
 
-  getName()
-  {
-    return this.name;
-  }
+  // getMovieId()
+  // {
+  //   // const movie  = this.getMovieById(this.MovieId)
+  //   // const movieName = movie.name
+  //   return this.MovieId ;
+  // }
 
   //main upi url to call express api
 

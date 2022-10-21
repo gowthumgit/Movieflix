@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MockData } from '../../mock-data/mock-seats-data';
 import { Seat } from 'src/app/models/seat';
 import { SeatService } from 'src/app/services/seat.service';
