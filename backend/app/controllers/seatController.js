@@ -6,15 +6,15 @@ exports.create = async (req, res) => {
    /*  if(!req.body.audiId){
         res.status(400).send({message:"Content cannot be empty!!!"});
     }
-    */ if (!req.body.audiId && !req.body.rows && !req.body.coloumns && !req.body.price) {
+    */ if (!req.body.row && !req.body.col && !req.body.seatname && !req.body.occupied) {
         res.status(400).send({ message: "Content ALL cannot be empty!!!" });
     }
 
     const seat = new SeatModel({
-        audiId: req.body.audiId,
-        rows: req.body.rows,
-        coloumns: req.body.coloumns,
-        price: req.body.price,
+        row: req.body.row,
+        col: req.body.col,
+        seatname: req.body.seatname,
+        occupied: req.body.occupied,
 
 
     });
