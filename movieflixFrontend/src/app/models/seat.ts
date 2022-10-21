@@ -1,6 +1,8 @@
 export class Seat{
-    audiId:String='';
-    rows:Number=0;
-    coloums:Number=0;
-    price:Number=0;
+    row:String='';
+    col:String='';
+    seatname:String='';
+    //audiId:String='';
+    occupied:String='';
+    //price:Number=0;
     }

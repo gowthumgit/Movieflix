@@ -1,25 +1,33 @@
 var mongoose = require('mongoose');
 
 var schema=new mongoose.Schema({
-    audiId:{
+    /*audiId:{
         type:String,
         required:true,
         unique:true
-    },
+    },*/
     
-    rows:{
-        type:Number,
+    row:{
+        type:String,
         required:true,
     } ,
-    coloumns :{
-        type:Number,
+    col :{
+        type:String,
         required:true,
     },
-    price :
+    seatname :{
+        type:String,
+        required:true,
+    },
+    occupied :{
+        type:String,
+        required:true,
+    },
+    /*price :
     {
         type:Number,
         required:true,
-    }
+    }*/
 });
 
 var seat = new mongoose.model('seat',schema);
