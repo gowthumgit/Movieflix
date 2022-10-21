@@ -1,5 +1,5 @@
 /* import { Component, OnInit } from '@angular/core';
-import { MockData } from '../mock-data/mock-seats-data';
+import { MockData } from 'app/src/mock-data/mock-seats-data';
 import { Seat } from 'src/app/models/seat';
 import { SeatService } from 'src/app/services/seat.service';
 

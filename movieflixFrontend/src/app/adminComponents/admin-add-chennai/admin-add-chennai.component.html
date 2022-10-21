@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <form novalidate [formGroup]= "addMovForm">
+                <form novalidate [formGroup]= "addMovForm" (ngSubmit)="completeLogin()">
                     <div class="form-group">
                         <label for="movieId">Movie Id </label>
                         <input type="text" name="movieId" class="form-control" 

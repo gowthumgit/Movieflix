@@ -24,8 +24,9 @@ export class AdminChennaiMoviesComponent implements OnInit {
 
   removemovie(movie :any,index:any){
     if(window.confirm('Are You sure?')){
-      this.movService.deleteMovie(movie._id).subscribe((data)=>{
+      this.movService.deleteMovie(movie._id).subscribe(()=>{
         this.movies.splice(index,1);
+        this.getAllMovies()
       })
     }
   }

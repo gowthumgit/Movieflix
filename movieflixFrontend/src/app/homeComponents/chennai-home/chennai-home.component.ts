@@ -10,8 +10,11 @@ import { Movie } from 'src/app/models/movie';
 })
 export class ChennaiHomeComponent implements OnInit {
   @Input() moviename=[];
+  
 
   Moviename=Movie;
+
+
   constructor(private movService:MovieServices) { 
     this.getAllMovies();
   }
@@ -33,5 +36,9 @@ export class ChennaiHomeComponent implements OnInit {
         this.movies.splice(index,1);
       })
     }
+  }
+
+  passMovieName(name : any){
+   this.movService.setName(name);
   }
 }

@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link text-light" href="#">Movies <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-light" routerLink="/home/admchennai">Admin <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item dropdown text-white">
@@ -61,8 +61,8 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 
         </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item ">
+        <div class="carousel-inner ">
+            <div class="carousel-item active">
                 <img class="d-block w-100"
                     src="https://www.cinepolisindia.com/content/img/slider/20221042938762-prin.png" alt="First slide">
             </div>
@@ -70,7 +70,7 @@
                 <img class="d-block w-100"
                     src="https://www.cinepolisindia.com/content/img/slider/2022104242451-prin.png" alt="Second slide">
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item ">
                 <img class="d-block w-100"
                     src="https://www.cinepolisindia.com/content/img/slider/20221042105746-prin.png" alt="Third slide">
             </div>
@@ -99,173 +99,30 @@
 
 <div class="mx-5 mt-4" style=" text-align: center;">
     <h2>Recommended Movies</h2>
-    <br>
 </div>
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/godfather-et00325579-1664779116.jpg"
-            alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">God Father</h5>
-            <p class="card-text">Action/Drama</p>
-        </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-primary">Book Now </a>
-        </div>
+<div class="row border-0" style=" text-align: center;">
+    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies.slice().reverse(); let i = index;">
+        <div *ngIf="i<12" let>
+            
+            <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
+            <div class="card-body border-0">
+                <h5 class="card-title">{{mov.name}}</h5>
+                <p class="card-text">{{mov.genre}}</p>
+            </div>
 
+            <div class="card-footer">
+                <div class="btn-group">
 
-    </div>
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kantara-et00330541-1664620755.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Kantara</h5>
-            <p class="card-text">Adventure/Drama/hriller.</p>
+                    <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/home/theatre'
+                        (click)="passMovieName(mov.name)">Book now</button>
+
+                </div>
+            </div>
         </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
-
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/ponniyin-selvan--part-1-et00323897-1664271205.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Ponniyin Selvan</h5>
-            <p class="card-text">Adventure/Drama/Historical</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a>
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/doctor-g-et00305720-1663573294.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Doctor G</h5>
-            <p class="card-text">Comedy/Drama</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
+        <br>
 
     </div>
 </div>
-
-<br><br>
-
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/black-adam-et00117411-1665552700.jpg"
-            alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">Black Adam</h5>
-            <p class="card-text">Action/Fantasy/Sci-Fi</p>
-        </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-primary">Book Now </a>
-        </div>
-
-
-    </div>
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rorschach-et00337244-1665123291.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Rorschacchs</h5>
-            <p class="card-text">Action/Psycological/Thriller </p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
-
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/champion-et00326583-1665574855.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Champion</h5>
-            <p class="card-text">Action/Drama/Sports</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a>
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/vikram-vedha-et00319143-1663323973.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Vikram Vedha</h5>
-            <p class="card-text">Action/Comedy/Drama/Thriller</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
-
-    </div>
-</div>
-<br><br>
-
-
-
-
-<div class="card-deck border-0" style=" text-align: center;">
-    <div class="card border-0 text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/halloween-ends-et00337775-1661069507.jpg"
-            alt="Card image cap">
-        <div class="card-body border-0">
-            <h5 class="card-title">Hallowen Ends</h5>
-            <p class="card-text">Horror/Thriller</p>
-        </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-primary">Book Now </a>
-        </div>
-
-
-    </div>
-    <div class="card " style="text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/rorschach-et00337244-1665123291.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Guru Shisyaru</h5>
-            <p class="card-text">Comedy/Drama </p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
-
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/prince-et00331045-10-06-2022-05-11-06.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Prince</h5>
-            <p class="card-text">Comedy/Drama</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a>
-
-        </div>
-    </div>
-    <div class="card" style=" text-align: center;">
-        <img class="card-img-top"
-            src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/sardar-et00310546-1665572029.jpg"
-            alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Sardar</h5>
-            <p class="card-text">Action/Thriller</p>
-        </div>
-        <div class="card-footer"> <a href="#" class="btn btn-primary">Book Now</a></div>
-
-
-    </div>
-</div>
-<br><br>
 
 <!-- Footer -->
 <footer class="page-footer font-small pt-4 text-light" style="background-color: rgb(51, 51, 56);">
