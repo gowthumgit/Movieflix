@@ -19,6 +19,7 @@ import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/ad
 import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignupComponent } from './authentication/signup/signup.component';
     AdminAddChennaiComponent,
        TheatreCompComponent,
        LoginComponent,
-       SignupComponent
+       SignupComponent,
+       CartComponent
   ],
   imports: [
     BrowserModule,

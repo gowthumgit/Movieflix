@@ -46,6 +46,9 @@ app.use('/movie',MovieRoute)
 const UserRoute = require('./app/routes/userRoutes')
 app.use('/user',UserRoute)
 
+const CartRoute = require('./app/routes/cartRoutes')
+app.use('/user',CartRoute)
+
 app.listen(7070,function(){
     console.log("Server is listening to Port no 7070");
 });
