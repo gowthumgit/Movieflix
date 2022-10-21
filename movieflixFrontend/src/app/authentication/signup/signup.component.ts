@@ -20,27 +20,30 @@ export class SignupComponent implements OnInit {
   userLanguage!: FormControl;
   userBalance!: FormControl;
   userPassword!:FormControl;
+  reEnterPassword!:FormControl;
   
+  
+  
+
+
+
+
   type : string ="password";
   isText : boolean = false;
   eyeIcon : string ="fa-eye-slash";
+  
 
   constructor(
     private acRoute:ActivatedRoute,private router:Router,private useService:LoginService) { }
 
   ngOnInit(): void {
-    this.userId = new FormControl();
-    this.userEmail = new FormControl();
-    this.userLocation = new FormControl();
-    this.userLanguage = new FormControl();
-    this.userBalance = new FormControl();
-    this.userPassword= new FormControl();
-
-    this.userId=new FormControl('',[Validators.required]);
-    this.userEmail=new FormControl('',[Validators.required]);
-    this.userLocation = new FormControl('',[Validators.minLength(3),Validators.required]);
-    this.userPassword=new FormControl('',[Validators.required]);
-    
+    this.userId = new FormControl('',[Validators.required]);
+    this.userEmail = new FormControl('',[Validators.required]);
+    this.userLocation = new FormControl('',[Validators.required]);
+    this.userLanguage = new FormControl('',[Validators.required]);
+    this.userBalance = new FormControl('',[Validators.required]);
+    this.userPassword= new FormControl('',[Validators.required]);
+    this.reEnterPassword= new FormControl('',[Validators.required]);
  
     this.addUseForm = new FormGroup({
       'userId':this.userId,
@@ -49,6 +52,7 @@ export class SignupComponent implements OnInit {
       'userLanguage' : this.userLanguage,
       'userBalance' : this.userBalance,
       'userPassword':this.userPassword,
+      'reEnterPassword':this.reEnterPassword,
     });
   }
 

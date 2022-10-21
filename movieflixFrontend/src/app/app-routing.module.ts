@@ -16,7 +16,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SeatComponent } from './seatComponents/seat/seat.component';
 import { SeatsComponent } from './seatComponents/seats/seats.component';
-
+import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
 
 const routes: Routes = [
   {path : 'login',component:LoginComponent},
@@ -34,6 +34,7 @@ const routes: Routes = [
   {path : 'home/theatre',component:TheatreCompComponent},
   {path : 'admin',component:AdminMoviesComponent},
   {path : 'home/seat',component:SeatsComponent},
+  {path : 'admin/user',component:UserDetailsComponent}
 
   
 ];

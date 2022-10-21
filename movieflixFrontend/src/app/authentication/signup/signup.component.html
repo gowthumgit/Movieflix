@@ -10,74 +10,63 @@
                         <h3 class="pt-3 font-weight-bold">Sign Up</h3>
                     </div>
                     <div class="panel-body p-3" >
-                        <form novalidate [formGroup]="addUseForm">
+                        <form novalidate [formGroup]= "addUseForm">
                             <div class="form-group pt-3">
-                                <div class="input-field ">
+                                <div class="input-field" [ngClass]="{ 'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}"
+                                [class.error]= "addUseForm.controls['userId'].dirty && addUseForm.hasError('required','userId')">
                                     <span class="fa fa-user p-2"></span>
-                                    <input type="text" name="userId"  placeholder="User ID" class="form-control" formControlName="userId"
-                                    [ngClass]="{'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
-                                    <div class="invalid-feedback">
-                                        <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
-                                    </div>
+                                    <input type="text" name="userId" class="form-control" 
+                                        formControlName="userId" placeholder="UserName">         
                                 </div>
-                           
-                               
-                            </div>
-                            
-
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-user p-2"></span>
-                                    <input type="text" name="userEmail"  placeholder="User Email" class="form-control" 
-                                    formControlName="userEmail"
-                                    [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
-                                    <div class="invalid-feedback">
-                                        <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
-                                    </div>
-                                   
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userId.errors?.['required']">*userId is required </strong>
                                 </div>
                             </div>
-                            
                             <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <span class="fa fa-user p-2"></span>
-                                    <input type="text" name="userLocation"  placeholder="userLocation" class="form-control" formControlName="userLocation" 
-                    [ngClass]="{'is-invalid':userLocation.errors &&(userLocation .touched || userLocation .dirty),'is-valid':userLocation .valid}">
-                    <div class="invalid-feedback">
-                        <strong *ngIf="userLocation.errors?.['required']">userLocation is required</strong>
-                        <!-- <strong *ngIf="userLocation .errors?.['minlength']">uerLocation length is must be greater than {{userLocation.errors?.['minlength'].requiredLength}} character
-                            {{userLocation.errors?.['minlength'].requiredLength - userLocation.errors?.['minlength'].actualLength}}
-                            more characters required </strong> -->
-                    </div>
+                                <div class="input-field" [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}"
+                                [class.error]= "addUseForm.controls['userEmail'].dirty && addUseForm.hasError('required','userEmail')">
+                                    <span class="fa fa-envelope p-2"></span>
+                                    <input type="email" name="userEmail" class="form-control" 
+                                        formControlName="userEmail" placeholder="UserEmail">         
+                                </div>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userEmail.errors?.['required']">*userEmail is required </strong>
                                 </div>
                             </div>
-                            
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [ngClass]="{ 'is-invalid':userLocation.errors && (userLocation.touched || userLocation.dirty),'is-valid' :userLocation.valid}"
+                                [class.error]= "addUseForm.controls['userLocation'].dirty && addUseForm.hasError('required','userLocation')">
+                                    <span class="fa fa-map-marker p-2"></span>
+                                    <input type="text" name="userLocation" class="form-control" 
+                                        formControlName="userLocation" placeholder="UserLocation">         
+                                </div>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userLocation.errors?.['required']">*userLocation is required </strong>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [ngClass]="{'is-invalid':userPassword.errors && (userPassword.touched || userPassword.dirty),'is-valid' :userPassword.valid}"
+                                [class.error]= "addUseForm.controls['userPassword'].dirty && addUseForm.hasError('required','userPassword')">
                                     <span class="fa fa-lock p-2"></span>
                                     <input [type]="type" placeholder="UserPassword" class="form-control" 
-                                    formControlName="userPassword" formControlName="userPassword"  [ngClass]="{'is-invalid':userPassword.errors &&(userPassword .touched || userPassword .dirty),'is-valid':userPassword .valid}">
-                                    <div class="invalid-feedback">
-                                        <strong *ngIf = "userPassword.errors?.['required']">User Password is required </strong>
-                                        <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
-                                    </div>
-
-                                    
+                                    formControlName="userPassword">
+                                    <span (click)="hideShowPass()" class="fa fa-eye-slash"></span> 
                                 </div>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userPassword.errors?.['required']">*password is required </strong>
+                                </div> 
                             </div>
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [ngClass]="{'is-invalid':reEnterPassword.errors && (reEnterPassword.touched || reEnterPassword.dirty),'is-valid' :reEnterPassword.valid}"
+                                [class.error]= "addUseForm.controls['reEnterPassword'].dirty && addUseForm.hasError('required','reEnterPassword')">
                                     <span class="fa fa-lock p-2"></span>
-                                    <input [type]="type" placeholder="Re-Enter Password" class="form-control" 
-                                    formControlName="userPassword" formControlName="userPassword"  [ngClass]="{'is-invalid':userPassword.errors &&(userPassword .touched || userPassword .dirty),'is-valid':userPassword .valid}">
-
-                                    <div class="invalid-feedback">
-                                        <strong *ngIf = "userPassword.errors?.['required']">Re enter password is required </strong>
-                                        <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
-                                    </div>
-
-                                   
+                                    <input [type]="type" placeholder="Re-Enter Password"class="form-control" 
+                                    formControlName="reEnterPassword">
+                                    <span (click)="hideShowPass()" class="fa fa-eye-slash"></span> 
                                 </div>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "reEnterPassword.errors?.['required']">*Re enter password is required </strong>
+                                </div> 
                             </div>
                             <button type='submit' [disabled] = "addUseForm.invalid" 
                             (click)= "addUser()" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>

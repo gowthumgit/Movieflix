@@ -12,31 +12,35 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [ngClass]="{ 'is-invalid':userName.errors && (userName.touched || userName.dirty),'is-valid' :userName.valid}"
+                                [class.error]="loginForm.controls['userName'].dirty && loginForm.hasError('required','userName')" >
                                     <span class="fa fa-user p-2"></span>
-                                    <input formControlName="username" type="text" placeholder="UserId or Useremail">
+                                    <input class ="form-control" formControlName="userName" type="text" placeholder="UserId or UserEmail" [(ngModel)]='userName'>
+                                </div>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userName.errors?.['required']">*userName is required </strong>
                                 </div>
                             </div>
-                            <small
-                                *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
-                                class="text-danger">*UserId or UserEmail is required</small>
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [ngClass]="{'is-invalid':userPassword.errors && (userPassword.touched || userPassword.dirty),'is-valid' :userPassword.valid}"
+                                [class.error]= "loginForm.controls['userPassword'].dirty && loginForm.hasError('required','userPassword')">
                                     <span class="fa fa-lock p-2"></span>
-                                    <input formControlName="password" [type]="type" placeholder="Password">
-                                    <span (click)="hideShowPass()" class="fa fa-eye-slash"></span>
+                                    <input [type]="type" placeholder="UserPassword" class="form-control" 
+                                    formControlName="userPassword" [(ngModel)]='userPassword'>
+                                    <span (click)="hideShowPass()" class="fa fa-eye-slash"></span> 
                                 </div>
-                            </div>
-                            <small
-                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
-                                class="text-danger">*Password is required</small>
+                                <div class="invalid-feedback">
+                                    <strong *ngIf = "userPassword.errors?.['required']">*password is required </strong>
+                                </div>
+                            </div> 
                             <div class="form-inline fr mt-4">
                                 <a id="forget" class="font-weight-bold">Forget Password?</a>
                             </div>
-                            <button type="submit" routerLink="/home/chennai"
-                                class="btn btn-primary btn-block mt-4 w-100">Login</button>
-                            <div class="text-center pt-4 text-muted">Don't have an account?<a id="forget"
-                                    routerLink="/signup">Sign Up </a> </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onlogin()">Login</button>
+
+
+                            
+                            <div class="text-center pt-4 text-muted">Don't have an account?<a id="forget" routerLink="/signup">Sign Up </a> </div>
                         </form>
                     </div>
                 </div>
@@ -44,3 +48,4 @@
         </div>
     </div>
 </div>
+

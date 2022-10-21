@@ -4,4 +4,5 @@ export class User{
     userLocation:String='';
     userLanguage:String='';
     userBalance:Number=0;
+    userPassword:String='';
     }
