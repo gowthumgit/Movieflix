@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router'
 import { User } from 'src/app/models/user';
+import { Movie } from 'src/app/models/movie';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,33 +21,26 @@ export class LoginComponent implements OnInit {
     this.getAllUsers();
   }
   users:any=[];
-userVal:any;
+  userVal!:Movie
 
   onlogin() {
     let check = 0;
     
 
-    for (let i = 0; i < 3; i++) {
-      
+    for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].userId == this.userName && this.users[i].userPassword == this.userPassword) {
 
-
         check = 1;
-        console.log(this.users[i]._id);
-        console.log('Reply from login service')
-        console.log(this.loginservice.getUserById(this.users[i]._id))
-        console.log(this.users[i]._id);
+        this.userVal = this.users[i]
+
         this.loginservice.setUser(this.userVal);
-        console.log(this.users.length);
-        console.log(this.userVal);
         
 
-        //this.route.navigate(['/home/chennai']);
-        //console.log(this.users.length);
+        this.route.navigate(['/home/chennai']);
 
 
         
-       
+       break
 
       }
 
