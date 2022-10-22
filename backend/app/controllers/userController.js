@@ -43,7 +43,7 @@ exports.findOne = async (req,res) =>{
     try{
         const user = await UserModel.findById(req.params.id);
         res.status(200).json(user);
-    }catch{
+    }catch(error){
         res.status(404).json({message:error.message})
     }
 }

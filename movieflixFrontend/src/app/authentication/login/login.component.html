@@ -15,7 +15,7 @@
                                 <div class="input-field" [ngClass]="{ 'is-invalid':userName.errors && (userName.touched || userName.dirty),'is-valid' :userName.valid}"
                                 [class.error]="loginForm.controls['userName'].dirty && loginForm.hasError('required','userName')" >
                                     <span class="fa fa-user p-2"></span>
-                                    <input class ="form-control" formControlName="userName" type="text" placeholder="UserId or UserEmail" [(ngModel)]='userName'>
+                                    <input class ="form-control" formControlName="userName" type="email" placeholder="UserId or UserEmail" [(ngModel)]='userName'>
                                 </div>
                                 <div class="invalid-feedback">
                                     <strong *ngIf = "userName.errors?.['required']">*userName is required </strong>

@@ -24,6 +24,8 @@ import { CartComponent } from './cart/cart.component';
 import { SeatComponent } from './seatComponents/seat/seat.component';
 import { SeatsComponent } from './seatComponents/seats/seats.component';
 import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
+import { ViewUserComponent } from './userDetails/view-user/view-user.component';
+import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { UserDetailsComponent } from './adminComponents/user-details/user-detail
        CartComponent,
        UserDetailsComponent,
        SeatComponent,
-       SeatsComponent
+       SeatsComponent,
+       ViewUserComponent,
+       EditUserComponent
   ],
   imports: [
     BrowserModule,

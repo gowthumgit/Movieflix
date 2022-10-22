@@ -1,6 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { MovieServices} from '../../services/movie-services.service';
 import { Movie } from 'src/app/models/movie';
+import { LoginService } from 'src/app/services/login.service';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -11,12 +13,14 @@ import { Movie } from 'src/app/models/movie';
 export class ChennaiHomeComponent implements OnInit {
   @Input() moviename=[];
   
-
+  user!:User;
+  
   Moviename=Movie;
 
 
-  constructor(private movService:MovieServices) { 
+  constructor(private movService:MovieServices,private loginService:LoginService) { 
     this.getAllMovies();
+    this.getUser();
   }
   movies:any=[];
 
@@ -40,5 +44,10 @@ export class ChennaiHomeComponent implements OnInit {
 
   passMovie(movie : Movie){
    this.movService.setMovie(movie);
+  }
+
+
+  getUser(){
+    this.user=this.loginService.userVal;
   }
 }

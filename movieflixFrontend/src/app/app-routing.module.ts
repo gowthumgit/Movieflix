@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { DefaultHomeComponent } from './homeComponents/default-home/default-home.component';
 import { BangaloreHomeComponent } from './homeComponents/bangalore-home/bangalore-home.component';
 import { ChennaiHomeComponent } from './homeComponents/chennai-home/chennai-home.component';
@@ -17,6 +16,9 @@ import { SignupComponent } from './authentication/signup/signup.component';
 import { SeatComponent } from './seatComponents/seat/seat.component';
 import { SeatsComponent } from './seatComponents/seats/seats.component';
 import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
+import { ViewUserComponent } from './userDetails/view-user/view-user.component';
+import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
+
 
 const routes: Routes = [
   {path : 'login',component:LoginComponent},
@@ -34,7 +36,9 @@ const routes: Routes = [
   {path : 'home/theatre',component:TheatreCompComponent},
   {path : 'admin',component:AdminMoviesComponent},
   {path : 'home/seat',component:SeatsComponent},
-  {path : 'admin/user',component:UserDetailsComponent}
+  {path : 'admin/user',component:UserDetailsComponent},
+  {path : 'home/viewuser',component:ViewUserComponent},
+  {path : 'home/edituser',component:EditUserComponent},
 
   
 ];

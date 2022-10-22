@@ -9,6 +9,12 @@ import { User } from '../models/user';
 })
 export class LoginService {
 
+  userVal!: User;
+  
+  setUser(userVal: any) {
+    this.userVal=userVal;
+  }
+
 
   //main upi url to call express api
 

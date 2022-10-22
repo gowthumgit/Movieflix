@@ -9,12 +9,9 @@ import { Movie } from '../models/movie';
 })
 export class MovieServices {
   movie!: Movie;
-
-
-
+  
   setMovie(movie: any) {
     this.movie=movie;
-   
   }
 
   // getMovieId()
