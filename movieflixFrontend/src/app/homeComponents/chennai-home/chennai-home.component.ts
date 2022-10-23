@@ -18,6 +18,7 @@ export class ChennaiHomeComponent implements OnInit {
   
   user!:User;
   
+  
   Moviename=Movie;
 
 
@@ -35,7 +36,7 @@ export class ChennaiHomeComponent implements OnInit {
   getAllMovies(){
     this.movService.getMovies().subscribe((movdata)=>{
       this.movies=movdata;
-      console.log(movdata);
+      
     })
   }
 
@@ -65,4 +66,14 @@ logout(){
     
     
   }
+  search(searchinp:String){
+    for (let i = 0; i < this.movies.length; i++) {
+      if (this.movies[i].name == searchinp) {
+        window.alert("Movie not found");
+
+
+
+  }
+}
+}
 }

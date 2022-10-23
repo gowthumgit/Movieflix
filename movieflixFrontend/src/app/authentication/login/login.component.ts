@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
 
     for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].userId == this.userName && this.users[i].userPassword == this.userPassword) {
+      if (this.users[i].userId == this.loginForm.value.userName && this.users[i].userPassword == this.loginForm.value.userPassword) {
 
         check = 1;
         //console.log(this.users[i]._id);
@@ -43,8 +43,9 @@ export class LoginComponent implements OnInit {
         // console.log(this.userVal);
         this.sharingService.setUser(this.userVal);
 
-
-        this.route.navigate(['/home/chennai']);
+        let rout='/home/' + this.users[i].userLocation;
+        console.log(rout);
+        this.route.navigate([rout]);
         //console.log(this.users.length);
       }
     }
