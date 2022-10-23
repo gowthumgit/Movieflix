@@ -38,7 +38,7 @@ const routes: Routes = [
   {path : 'home/seat',component:SeatsComponent},
   {path : 'admin/user',component:UserDetailsComponent},
   {path : 'home/viewuser',component:ViewUserComponent},
-  {path : 'home/edituser',component:EditUserComponent},
+  {path : 'home/edituser/:id',component:EditUserComponent},
 
   
 ];

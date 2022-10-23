@@ -50,7 +50,8 @@ import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
        SeatComponent,
        SeatsComponent,
        ViewUserComponent,
-       EditUserComponent
+       EditUserComponent,
+      
   ],
   imports: [
     BrowserModule,

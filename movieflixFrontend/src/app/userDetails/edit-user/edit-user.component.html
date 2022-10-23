@@ -1,1 +1,59 @@
-<p>edit-user works!</p>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Edit Movie</h4>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="formSubmitted">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <strong>Bingo!!!!!User edit successfully.....</strong>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form novalidate [formGroup]="editUseForm">
+                    <div class="form-group">
+                        <label for="userId">User ID </label>
+                        <input type="text" name="userId" class="form-control" formControlName="userId"
+                            [ngClass]="{ 'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">User Email </label>
+                        <input type="text" name="userEmail" class="form-control" formControlName="userEmail"
+                            [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
+                        <div class="invalid-feedback">
+                            <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userLanguage">User Language </label>
+                        <input type="text" name="userLanguage" class="form-control" formControlName="userLanguage">
+                    </div>
+                    <div class="form-group">
+                        <label for="userLocation">User Location </label>
+                        <input type="text" name="userLocation" class="form-control" formControlName="userLocation">
+                    </div>
+                   
+
+
+                    <button type='submit' [disabled]="editUseForm.invalid" (click)="editUser()"
+                        class="btn btn-primary">Submit</button>
+                    <button type="button" (click)="editUseForm.reset()" class="btn btn-default">Reset</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    <strong>editUseForm : JSON</strong>
+                </label>
+                <pre class="alert alert-dark" role="alert">
+                    {{editUseForm.value | json}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

@@ -33,22 +33,21 @@
     </li>
     <div class="dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                    {{this.user.userId}}
+                  {{this.user.userId}} 
     </a>
         <div class="dropdown-menu" aria-labelledby="triggerId">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item disabled" href="#">Disabled action</a>
-            <h6 class="dropdown-header">Section header</h6>
-            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
+            <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
+           
+            <a class="dropdown-item" href="#">Wallet</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">After divider action</a>
+            <a class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
     </div>
     
 
 
     </ul>
-    <a class="nav-link text-light ">Gowthum <span class="sr-only">(current)</span></a>
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">

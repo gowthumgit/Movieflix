@@ -3,6 +3,9 @@ import { MovieServices} from '../../services/movie-services.service';
 import { Movie } from 'src/app/models/movie';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router'
+
+import { SharingService } from 'src/app/services/sharing.service';
 
 
 @Component({
@@ -18,9 +21,11 @@ export class ChennaiHomeComponent implements OnInit {
   Moviename=Movie;
 
 
-  constructor(private movService:MovieServices,private loginService:LoginService) { 
+  constructor(private movService:MovieServices,private sharingService:SharingService,private route: Router) { 
     this.getAllMovies();
     this.getUser();
+  
+    
   }
   movies:any=[];
 
@@ -46,8 +51,18 @@ export class ChennaiHomeComponent implements OnInit {
    this.movService.setMovie(movie);
   }
 
+logout(){
+  if(window.confirm('Are You sure?')){
+  this.sharingService.clearUser();
+  this.route.navigate(['/login']);
+  }
 
+}
   getUser(){
-    this.user=this.loginService.userVal;
+    
+       
+    this.user=this.sharingService.getUser();
+    
+    
   }
 }
