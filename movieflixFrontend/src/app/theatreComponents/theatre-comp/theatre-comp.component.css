@@ -51,6 +51,28 @@ body {
   background-color: #f9f9fa
 }
 
+.movieImage{
+  border-radius: 10px;
+  margin-top : 15px;
+  width : 200px;
+  height : 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+
+.timeButton{
+  background-color: transparent;
+  color: limegreen;
+  border-color: limegreen;
+  border-width: 1.5px ;
+}
+
+.timeButton:hover{
+  background-color: transparent;
+  color: blue;
+  border-color: blue;
+  border-width: 1.5px ;
+}
 
 .container{
   padding-top: 8%;

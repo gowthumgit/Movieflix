@@ -23,11 +23,11 @@
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Banglore</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <li><a class="dropdown-item" routerLink="/home/bangalore">Bangalore</a></li>
-            <li><a class="dropdown-item" routerLink="/home/chennai">Chennai</a></li>
-            <li><a class="dropdown-item" routerLink="/home/delhi">Delhi</a></li>
-            <li><a class="dropdown-item" routerLink="/home/hyderbad">Hyderbad</a></li>
-            <li><a class="dropdown-item" routerLink="/home/mumbai">Mumbai</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Bangalore">Bangalore</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Chennai">Chennai</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Delhi">Delhi</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Hyderbad">Hyderbad</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Mumbai">Mumbai</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
@@ -50,7 +50,7 @@
 
     <div class="card-body bg-secondary" style=" text-align: center;">
         <h1>{{movie.name}} - {{movie.language}}</h1>
-        <img src="{{movie.image_url}}">
+       <img class="movieImage" src="{{movie.image_url}}">
     </div>
 
     <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of Theatre; let i =index">
@@ -59,9 +59,11 @@
             <p class="card-text">[M-Ticket] [Food & Beverage]</p>
             <p class="card-text"></p>
 
-            <div  class="btn-group-horizontal" *ngFor="let time of theatre.showTime" style="display: flex;" >
-                <button type="button " class="btn btn-primary margin-left btn-group-horizontal"  routerLink="/home/seat">{{time}}</button>    
+            <div >
+                <span *ngFor="let time of theatre.showTime"  >
+                    <button type="button " class="timeButton btn btn-primary margin-left" routerLink="/home/seat">{{time}}</button>    
 
+                </span>
             </div>
         </div>
     </div>
