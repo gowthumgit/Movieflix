@@ -53,14 +53,14 @@
         <img src="{{movie.image_url}}">
     </div>
 
-    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of Theatre; let i =index">
+    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of theatres; let i =index">
         <div class="card-body">
             <h5 class="card-title">{{theatre.theatreName}}:{{theatre.theatreType}}</h5>
             <p class="card-text">[M-Ticket] [Food & Beverage]</p>
             <p class="card-text"></p>
 
             <div  class="btn-group-horizontal" *ngFor="let time of theatre.showTime" style="display: flex;" >
-                <button type="button " class="btn btn-primary margin-left btn-group-horizontal"  routerLink="/home/seat">{{time}}</button>    
+                <button type="button " class="btn btn-primary margin-left btn-group-horizontal"  (click)="onTheatreSelect(theatre.theatreName)" routerLink="/home/seat">{{time}}</button>    
 
             </div>
         </div>

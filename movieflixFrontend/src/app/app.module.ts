@@ -57,7 +57,8 @@ import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
