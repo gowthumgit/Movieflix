@@ -6,6 +6,10 @@ import { User } from '../models/user';
 })
 export class SharingService {
   private userDetails : string="userDetails";
+  private movieDetails : string="movieDetails";
+  private theatreDetails : string="theatreDetails";
+  private totalSeats : string = '';
+
   
   userVal!: User;
 
@@ -30,5 +34,65 @@ export class SharingService {
 
   cleanAll() {
     localStorage.clear()
+  }
+
+
+
+  //movie
+  setMovie(movieVal: any) {
+    localStorage.setItem(this.movieDetails, JSON.stringify(movieVal));
+  //  console.log("from sharing set user service");
+   // console.log(userVal)
+  }
+
+  getMovie() {
+    let movieVal = localStorage.getItem(this.movieDetails);
+  //  console.log("from sharing get user service");
+   // console.log(userVal)
+    
+    return JSON.parse(movieVal || '{}');
+  }
+
+  clearMovie() {
+    localStorage.removeItem(this.movieDetails);
+  }
+
+  cleanMovie() {
+    localStorage.clear()
+  }
+
+
+
+  //theatre
+  setTheatre(theatreVal: any) {
+    localStorage.setItem(this.theatreDetails, JSON.stringify(theatreVal));
+  //  console.log("from sharing set user service");
+   // console.log(userVal)
+  }
+
+  getTheatre() {
+    let theatreVal = localStorage.getItem(this.theatreDetails);
+  //  console.log("from sharing get user service");
+   // console.log(userVal)
+    
+    return JSON.parse(theatreVal || '{}');
+  }
+
+  clearTheatre() {
+    localStorage.removeItem(this.theatreDetails);
+  }
+
+  cleanTheatre() {
+    localStorage.clear()
+  }
+
+
+  //totalSeats
+  setTotalSeats(total_seats:Number){
+    localStorage.setItem(this.totalSeats,JSON.stringify(total_seats));
+  }
+
+  getTotalSeats(){
+    return localStorage.getItem(this.totalSeats);
   }
 }

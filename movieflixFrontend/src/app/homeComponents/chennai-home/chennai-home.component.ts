@@ -24,11 +24,10 @@ export class ChennaiHomeComponent implements OnInit {
 
   constructor(private movService:MovieServices,private sharingService:SharingService,private route: Router) { 
     this.getAllMovies();
-    this.getUser();
-  
-    
+    this.getUser();   
   }
   movies:any=[];
+  movieVal!:Movie;
 
 
   ngOnInit(): void {
@@ -66,6 +65,7 @@ logout(){
     
     
   }
+  
   search(searchinp:String){
     for (let i = 0; i < this.movies.length; i++) {
       if (this.movies[i].name == searchinp) {
@@ -75,5 +75,18 @@ logout(){
 
   }
 }
+}
+
+
+onMovieSelect(_movieName:String){
+  
+  for (let i = 0; i < this.movies.length; i++) {
+    if (this.movies[i].movieName == _movieName) {
+
+      this.movieVal = this.movies[i];
+      this.sharingService.setMovie(this.movieVal);
+    }
+  }
+  
 }
 }

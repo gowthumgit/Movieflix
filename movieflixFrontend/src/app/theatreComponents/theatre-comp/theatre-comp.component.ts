@@ -4,6 +4,7 @@ import {  MovieServices } from 'src/app/services/movie-services.service';
 import { Theatre } from 'src/app/models/theatre';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
+import { SharingService } from 'src/app/services/sharing.service';
 
 
 
@@ -20,7 +21,7 @@ export class TheatreCompComponent implements OnInit {
 
   movie!:Movie;
   movies: Movie[]=[];
-  constructor(private theatService:TheatreService, private movService:MovieServices, private acRoute:ActivatedRoute,private router:Router) { 
+  constructor(private theatService:TheatreService, private sharingService:SharingService, private movService:MovieServices, private acRoute:ActivatedRoute,private router:Router) { 
   this.getAllTheatres();
     this.getMovie()
     
@@ -28,7 +29,8 @@ export class TheatreCompComponent implements OnInit {
 
   // movies:any=[];
 
-Theatre: any=[];
+theatres: any=[];
+theatreVal!:Theatre;
 Movie:any=[];
 
 
@@ -42,7 +44,7 @@ Movie:any=[];
 
 getAllTheatres(){
   this.theatService.getTheatres().subscribe((thdata) =>{
-    this.Theatre = thdata;
+    this.theatres = thdata;
   })
 }
 
@@ -54,7 +56,24 @@ removeTheatre(){
 
 getMovie()
 {
-  this.movie=this.movService.movie;
+  this.movie=this.sharingService.getMovie();
 }
+
+
+
+onTheatreSelect(_theatreName:String){
+  
+  for (let i = 0; i < this.movies.length; i++) {
+    if (this.theatres[i].theatreName == _theatreName) {
+
+      this.theatreVal = this.theatres[i];
+      this.sharingService.setTheatre(this.theatreVal);
+    }
+  }
+  
 }
+
+}
+
+
 

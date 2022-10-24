@@ -1,27 +1,27 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-3">Movie Name</h1>
+        <h1 class="display-3">{{this.movie.name}}</h1>
         <hr class="my-2">
         <br>
             <form action="">
                 <label for="seats_order">Enter the number of seats:   </label>
-                <input type="number" style="margin-left: 4px;">
+                <input type="number" style="margin-left: 4px;" [(ngModel)]="enteredValue" name="value">
                 <br>
-                <br>
-                <br>
-                <label for="seats_order">Total Amount:   </label>
-                
-
+            
+                <button type="button" class="btn btn-primary" (click)="updateValue()">Add to Cart</button>
+                <br><br><br>
+                <label for="seats_order">Number of seats selected:   </label>
+                <h5>{{finalValue}}</h5>
             </form>
 
-            <button type="button" class="btn btn-primary">Pay</button>
+            
         
     </div>
 </div>
 <div class="container-fluid">
     <div class="card" style="padding-left:30px">
         <div class="card-body">
-            <h4 class="card-title">Movie Name</h4>
+            <h4 class="card-title">{{this.theatre.theatreName}}</h4>
         </div>
     
         <div class="row">
