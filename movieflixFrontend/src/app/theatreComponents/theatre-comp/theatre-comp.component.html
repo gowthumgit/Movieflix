@@ -2,47 +2,64 @@
     <a class="navbar-brand" href="#"><img
             src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="100" alt=""></a>
     <form class="d-flex me-5">
-        <input class="form-control me -5 mr-sm-2" type="text" placeholder="Search for movies">
-        <button class="xy bg-white me-5 rounded-"><img
+        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename"  placeholder="Search for movies" #moviename>
+        <button class="xy bg-white me-5 rounded-" (click)="search(moviename.value)"><img
                 src="https://www.nicepng.com/png/detail/853-8539483_png-file-search-button-icon-png.png" alt=""
                 width="20">
         </button>
+    
     </form>
 
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
+  
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link text-light" href="#">Movies <span class="sr-only">(current)</span></a>
-            </li>
-
+            
             <li class="nav-item dropdown text-white">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Banglore</a>
+                    aria-haspopup="true" aria-expanded="false">Bangalore</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
             <li><a class="dropdown-item" routerLink="/home/Bangalore">Bangalore</a></li>
             <li><a class="dropdown-item" routerLink="/home/Chennai">Chennai</a></li>
             <li><a class="dropdown-item" routerLink="/home/Delhi">Delhi</a></li>
-            <li><a class="dropdown-item" routerLink="/home/Hyderbad">Hyderbad</a></li>
+            <li><a class="dropdown-item" routerLink="/home/Hyderabad">Hyderabad</a></li>
             <li><a class="dropdown-item" routerLink="/home/Mumbai">Mumbai</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <a class="dropdown-item" href="#">Show More</a>
-
+            <a class="dropdown-item" href="#">Show More</a>  
+        
     </div>
-
+    
     </li>
-    <button class="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal">SignIn</button>
+    <div class="dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                  {{this.user.userId}} 
+    </a>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+            <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
+            <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
+           
+            <a class="dropdown-item" href="#">Wallet</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Log Out</a>
+        </div>
+    </div>
+    
+
 
     </ul>
+    <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
+        routerLink="/home/viewuser"
+        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
+
+
+
 
     </div>
 
 </nav>
+
 
 
 

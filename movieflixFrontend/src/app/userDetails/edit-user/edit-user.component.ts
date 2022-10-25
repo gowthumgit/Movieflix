@@ -18,6 +18,7 @@ export class EditUserComponent implements OnInit {
   userEmail!:FormControl;
   userLanguage!:FormControl;
   userLocation!:FormControl;
+  userBalance!:FormControl;
 
   userVal!:User;
   user!:User;
@@ -32,13 +33,14 @@ export class EditUserComponent implements OnInit {
     this.userEmail=new FormControl();
     this.userLanguage=new FormControl();
     this.userLocation=new FormControl();
-  
+    this.userBalance=new FormControl();
 
     this.editUseForm=new FormGroup({
       'userId':this.userId,
       'userEmail':this.userEmail,
       'userLanguage':this.userLanguage,
       'userLocation':this.userLocation,
+      'userBalance':this.userBalance,
       
     });
     this.updateUser();
@@ -60,6 +62,7 @@ export class EditUserComponent implements OnInit {
         userEmail:data['userEmail'],
         userLanguage : data['userLanguage'],
         userLocation : data['userLocation'],
+        userBalance:data['userBalance'],
         
       });
     });
@@ -92,7 +95,7 @@ storageUpdate(){
   this.user.userEmail = this.editUseForm.value.userEmail;
   this.user.userLocation = this.editUseForm.value.userLocation;
   this.user.userLanguage = this.editUseForm.value.userLanguage;
-   //this.user.userBalance=this.user.userBalance-100;   
+  this.user.userBalance=this.editUseForm.value.userBalance;   
       this.sharingService.setUser(this.user);
       
 }

@@ -66,7 +66,7 @@ if (this.user.userBalance>= this.totalSeats*240)
   //this.tempValue =this.user.userBalance ;
   //this.temp1Value = (this.totalSeats*240);
 
-//  Number(this.user.userBalance) -=Number(this.temp1Value) ;
+ //this.user.userBalance -= this.totalSeats*240;
   alert("Payment successfull ")
 
   let rout='/home/' + this.user.userLocation;
