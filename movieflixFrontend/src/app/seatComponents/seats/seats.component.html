@@ -1,17 +1,20 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-3">{{this.movie.name}}</h1>
+        <h3 >{{this.theatre.theatreName}}</h3>
+        <h3>{{time1}}</h3>
+        
+
         <hr class="my-2">
         <br>
             <form action="">
-                <label for="seats_order">Enter the number of seats:   </label>
-                <input type="number" style="margin-left: 4px;" [(ngModel)]="enteredValue" name="value">
                 <br>
             
-                <button type="button" class="btn btn-primary" (click)="updateValue()">Add to Cart</button>
                 <br><br><br>
                 <label for="seats_order">Number of seats selected:   </label>
                 <h5>{{finalValue}}</h5>
+                <br>
+                <button type="button" class="btn btn-primary" routerLink="/home/payment"> Proceed to payment</button>
             </form>
 
             
@@ -20,15 +23,13 @@
 </div>
 <div class="container-fluid">
     <div class="card" style="padding-left:30px">
-        <div class="card-body">
-            <h4 class="card-title">{{this.theatre.theatreName}}</h4>
-        </div>
-    
+      
         <div class="row">
             <app-seat [seat]= "seat" *ngFor= "let seat of seats"
-                style="margin-bottom: 10px" class="col-md-1">
+                style="margin-bottom: 10px" class="col-md-1" (click)="enableDisableRule()">
             </app-seat>
         </div> 
+
 
         
 

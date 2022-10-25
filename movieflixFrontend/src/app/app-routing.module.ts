@@ -10,6 +10,7 @@ import { AdminMoviesComponent } from './adminComponents/admin-movies/admin-movie
 import { AdminChennaiMoviesComponent } from './adminComponents/admin-chennai-movies/admin-chennai-movies.component';
 import { AdminEditChennaiComponent } from './adminComponents/admin-edit-chennai/admin-edit-chennai.component';
 import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/admin-add-chennai.component';
+import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.component';
 import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -18,16 +19,19 @@ import { SeatsComponent } from './seatComponents/seats/seats.component';
 import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
 import { ViewUserComponent } from './userDetails/view-user/view-user.component';
 import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
+import { PaymentComponent } from './payment/payment.component';
+
 
 
 const routes: Routes = [
   {path : 'login',component:LoginComponent},
   {path : 'signup', component:SignupComponent},
   {path : 'home',component:DefaultHomeComponent},
-  {path : 'home/bangalore',component:BangaloreHomeComponent},
+  {path : 'home/Bangalore',component:BangaloreHomeComponent},
+  {path : 'admin/login',component:AdminLoginComponent},
   {path : 'home/Chennai',component:ChennaiHomeComponent},
   {path : 'home/Delhi',component:DelhiHomeComponent},
-  {path : 'home/Hyderbad',component:HyderbadHomeComponent},
+  {path : 'home/Hyderabad',component:HyderbadHomeComponent},
   {path : 'home/Mumbai',component:MumbaiHomeComponent},
   {path : 'home/movies',component:AdminMoviesComponent},
   {path : 'home/admchennai',component:AdminChennaiMoviesComponent},
@@ -39,6 +43,7 @@ const routes: Routes = [
   {path : 'admin/user',component:UserDetailsComponent},
   {path : 'home/viewuser',component:ViewUserComponent},
   {path : 'home/edituser/:id',component:EditUserComponent},
+  {path : 'home/payment',component:PaymentComponent}
 
   
 ];

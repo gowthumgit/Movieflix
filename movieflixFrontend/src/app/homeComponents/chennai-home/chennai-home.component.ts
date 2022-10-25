@@ -19,6 +19,7 @@ export class ChennaiHomeComponent implements OnInit {
   user!:User;
   
   
+  
   Moviename=Movie;
 
 
@@ -78,15 +79,11 @@ logout(){
 }
 
 
-onMovieSelect(_movieName:String){
+onMovieSelect(movieVal:Movie){
   
-  for (let i = 0; i < this.movies.length; i++) {
-    if (this.movies[i].movieName == _movieName) {
-
-      this.movieVal = this.movies[i];
-      this.sharingService.setMovie(this.movieVal);
-    }
-  }
-  
+ 
+ 
+      this.sharingService.setMovie(movieVal);
+   
 }
 }

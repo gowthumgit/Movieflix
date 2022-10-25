@@ -92,7 +92,7 @@ storageUpdate(){
   this.user.userEmail = this.editUseForm.value.userEmail;
   this.user.userLocation = this.editUseForm.value.userLocation;
   this.user.userLanguage = this.editUseForm.value.userLanguage;
-      
+   //this.user.userBalance=this.user.userBalance-100;   
       this.sharingService.setUser(this.user);
       
 }

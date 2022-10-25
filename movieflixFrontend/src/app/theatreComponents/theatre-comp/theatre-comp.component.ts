@@ -19,9 +19,9 @@ export class TheatreCompComponent implements OnInit {
 @Input() 
 
 
-  movie!:Movie;
+  movieDetails!:Movie;
   movies: Movie[]=[];
-  constructor(private theatService:TheatreService, private sharingService:SharingService, private movService:MovieServices, private acRoute:ActivatedRoute,private router:Router) { 
+  constructor(private theatService:TheatreService, private sharingService:SharingService, private movService:MovieServices, private acRoute:ActivatedRoute,private route:Router) { 
   this.getAllTheatres();
     this.getMovie()
     
@@ -56,22 +56,33 @@ removeTheatre(){
 
 getMovie()
 {
-  this.movie=this.sharingService.getMovie();
+  this.movieDetails=this.sharingService.getMovie();
 }
 
 
 
-onTheatreSelect(_theatreName:String){
+onTheatreSelect(thet:any,time:any){
   
-  for (let i = 0; i < this.movies.length; i++) {
-    if (this.theatres[i].theatreName == _theatreName) {
+  
 
-      this.theatreVal = this.theatres[i];
+      this.theatreVal = thet;
+      //console.log("from theatre comp")
+     // console.log(thet);
+      //console.log(time);
       this.sharingService.setTheatre(this.theatreVal);
+      this.sharingService.setTheatreTime(time);
     }
-  }
   
+  
+
+logout(){
+  if(window.confirm('Are You sure?')){
+  this.sharingService.clearUser();
+  this.route.navigate(['/login']);
+  }
+
 }
+
 
 }
 

@@ -26,6 +26,8 @@ import { SeatsComponent } from './seatComponents/seats/seats.component';
 import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
 import { ViewUserComponent } from './userDetails/view-user/view-user.component';
 import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
        SeatsComponent,
        ViewUserComponent,
        EditUserComponent,
+       PaymentComponent,
+       AdminLoginComponent,
       
   ],
   imports: [

@@ -49,28 +49,54 @@
 <div class="top_space bg-light">
 
     <div class="card-body bg-secondary" style=" text-align: center;">
-        <h1>{{movie.name}} - {{movie.language}}</h1>
-       <img class="movieImage" src="{{movie.image_url}}">
+        <h1>{{movieDetails.name}} - {{movieDetails.language}}</h1>
+       <img class="movieImage" src="{{movieDetails.image_url}}">
+       <br><br>
+       <h5>{{movieDetails.genre}}</h5>
     </div>
 
-    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of theatres; let i =index">
+    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let thet of theatres; let i =index">
         <div class="card-body">
-            <h5 class="card-title">{{theatre.theatreName}}:{{theatre.theatreType}}</h5>
+            <h5 class="card-title">{{thet.theatreName}}:{{thet.theatreType}}</h5>
             <p class="card-text">[M-Ticket] [Food & Beverage]</p>
             <p class="card-text"></p>
 
-            <div  class="btn-group-horizontal" *ngFor="let time of theatre.showTime" style="display: flex;" >
-                <button type="button " class="btn btn-primary margin-left btn-group-horizontal"  (click)="onTheatreSelect(theatre.theatreName)" routerLink="/home/seat">{{time}}</button>    
+            <div >
 
-                
+             <span *ngFor="let time of thet.showTime"  >
+                    <button type="button " class="timeButton btn-primary margin-left "  (click)="onTheatreSelect(thet,time)" routerLink="/home/seat">{{time}}</button>    
+
+                </span>
             </div>
         </div>
     </div>
 
 </div>
 
+<!-- <div class="top_space bg-light">
 
+    <div class="card-body bg-secondary" style=" text-align: center;">
+        <h1>{{movie.name}} - {{movie.language}}</h1>
+       <img class="movieImage" src="{{movie.image_url}}">
+    </div>
 
+    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of Theatre; let i =index">
+        <div class="card-body">
+            <h5 class="card-title">{{theatre.theatreName}}:{{theatre.theatreType}}</h5>
+            <p class="card-text">[M-Ticket] [Food & Beverage]</p>
+            <p class="card-text"></p>
+
+            <div >
+                <span *ngFor="let time of theatre.showTime"  >
+                    <button type="button " class="timeButton btn btn-primary margin-left" routerLink="/home/seat">{{time}}</button>    
+
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div> 
+ -->
 
 
 <!-- Footer -->

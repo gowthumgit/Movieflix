@@ -8,7 +8,9 @@ export class SharingService {
   private userDetails : string="userDetails";
   private movieDetails : string="movieDetails";
   private theatreDetails : string="theatreDetails";
-  private totalSeats : string = '';
+  private adminDetails : string="adminDetails";
+  private totalSeats : string = 'totalSeats';
+  private timeDetails: string='timeDetails';
 
   
   userVal!: User;
@@ -69,7 +71,16 @@ export class SharingService {
   //  console.log("from sharing set user service");
    // console.log(userVal)
   }
+  setTheatreTime(time:any){
+    localStorage.setItem(this.timeDetails, JSON.stringify(time));
+  }
 
+  getTheatreTime(){
+    let timeVal = localStorage.getItem(this.timeDetails);
+    return JSON.parse(timeVal || '{}');
+    
+
+  }
   getTheatre() {
     let theatreVal = localStorage.getItem(this.theatreDetails);
   //  console.log("from sharing get user service");
@@ -95,4 +106,30 @@ export class SharingService {
   getTotalSeats(){
     return localStorage.getItem(this.totalSeats);
   }
+  clearSeats() {
+    localStorage.removeItem(this.totalSeats);
+  }
+
+
+
+
+
+  //Admin
+  setAdmin(adminVal: any) {
+    localStorage.setItem(this.adminDetails, JSON.stringify(adminVal));
+  }
+
+  getAdmin() {
+    let adminVal = localStorage.getItem(this.adminDetails);
+  //  console.log("from sharing get user service");
+   // console.log(userVal)
+    
+    return JSON.parse(adminVal || '{}');
+  }
+
+  clearAdmin() {
+    localStorage.removeItem(this.adminDetails);
+  }
+
+
 }
