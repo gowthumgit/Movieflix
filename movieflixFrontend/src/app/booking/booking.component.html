@@ -1,0 +1,27 @@
+<div class="body">
+    <div class="d-flex justify-content-center container mt-5">
+        <div class="card p-3 bg-white"><i class="fa fa-film"></i>
+            <div class="about-product text-center mt-2"><img src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="300">
+                <div>
+                    <h4>Booking Information</h4>
+                    <h6 class="mt-0 text-black-50">Movie Tickets-{{totalSeats}}</h6>
+                </div>
+            </div>
+            <div class="about-product text-center mt-2">
+                <div>
+                    <qrcode [qrdata]="myAngularQrCode" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+                </div>
+            </div>
+            <div class="stats mt-2">
+                <div class="d-flex justify-content-between p-price"><span>Movie Name</span><span>{{movieDetails.name}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Theatre Name</span><span>{{theatreDetails.theatreName}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Show Time</span><span>{{time1}}</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Ticket price</span><span>240</span></div>
+                <div class="d-flex justify-content-between p-price"><span>Email</span><span>{{this.user.userEmail}}</span></div>
+            </div>
+            <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>Total Amount Paid</span><span>Rs.{{totalSeats*240}}</span></div>
+        </div>
+    </div>
+    
+    <!-- <qrcode [qrdata]="myAngularQrCode" [width]="200" [errorCorrectionLevel]="'M'"></qrcode> -->
+    </div>

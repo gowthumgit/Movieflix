@@ -107,6 +107,7 @@ exports.create = async (req, res) => {
         rating: req.body.rating,
         actors: req.body.actors,
         audi_ids: req.body.audi_ids,
+        movieLocation:req.body.movieLocation,
 
     });
 

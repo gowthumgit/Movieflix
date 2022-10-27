@@ -13,7 +13,7 @@ import { SharingService } from 'src/app/services/sharing.service';
 })
 export class HomePageComponent implements OnInit {
   @Input() moviename=[];
-  
+  searchMovie:string='';
 
   Moviename=Movie;
   user!:User;
@@ -67,14 +67,12 @@ logout(){
     
   }
   
-  search(searchinp:String){
+  search(){
     for (let i = 0; i < this.movies.length; i++) {
-      if (this.movies[i].name == searchinp) {
-        window.alert("Movie not found");
-
-
-
+      if (this.movies[i].name == this.searchMovie) {
+        window.alert("Movie found");
   }
+ 
 }
 }
 

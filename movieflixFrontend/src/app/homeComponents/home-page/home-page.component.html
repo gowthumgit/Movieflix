@@ -2,9 +2,9 @@
     <a class="navbar-brand" href="#"><img
             src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="100" alt=""></a>
     <form class="d-flex me-5">
-        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename"
-            placeholder="Search for movies" #moviename>
-        <button class="xy bg-white me-5 rounded-" (click)="search(moviename.value)"><img
+        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename" [(ngModel)]="searchMovie"
+            placeholder="Search for movies" >
+        <button class="xy bg-white me-5 rounded-" (click)="search()"><img
                 src="https://www.nicepng.com/png/detail/853-8539483_png-file-search-button-icon-png.png" alt=""
                 width="20">
         </button>
@@ -19,20 +19,20 @@
             <li class="nav-item dropdown text-white">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">{{this.loc}}</a>
-            
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <li><a class="dropdown-item" (click)="dropLocation('Bangalore')">Bangalore</a></li>
-                <li><a class="dropdown-item" (click)="dropLocation('Chennai')">Chennai</a></li>
-                <li><a class="dropdown-item" (click)="dropLocation('Delhi')">Delhi</a></li>
-                <li><a class="dropdown-item" (click)="dropLocation('Hyderabad')">Hyderabad</a></li>
-                <li><a class="dropdown-item" (click)="dropLocation('Mumbai')">Mumbai</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <a class="dropdown-item" href="#">Show More</a>
-            </div>
-        </li>
-        </ul>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+            <li><a class="dropdown-item" (click)="dropLocation('Bangalore')">Bangalore</a></li>
+            <li><a class="dropdown-item" (click)="dropLocation('Chennai')">Chennai</a></li>
+            <li><a class="dropdown-item" (click)="dropLocation('Delhi')">Delhi</a></li>
+            <li><a class="dropdown-item" (click)="dropLocation('Hyderabad')">Hyderabad</a></li>
+            <li><a class="dropdown-item" (click)="dropLocation('Mumbai')">Mumbai</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <a class="dropdown-item" href="#">Show More</a>
+    </div>
+    </li>
+    </ul>
     </div>
 
 
@@ -58,7 +58,7 @@
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
 
-    
+
 
 
 
@@ -124,11 +124,12 @@
 <div class="row border-0" style=" text-align: center;">
     <div class="card col-sm-3 border-0 text-align: center;"
         *ngFor="let mov of movies.slice().reverse(); let i = index;">
-        <div *ngIf="i<12" let>
 
+        <div *ngIf="mov.movieLocation==this.loc">
+            <div *ngIf="i<12" let></div>
             <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
             <div class="card-body border-0">
-                <h5 class="card-title">{{mov.name}}</h5>
+                <h5 class="card-title">{{mov.name}} - {{mov.language}}</h5>
                 <p class="card-text">{{mov.genre}}</p>
             </div>
 
@@ -141,10 +142,11 @@
                 </div>
             </div>
         </div>
-        <br>
-
     </div>
+    <br>
+
 </div>
+
 
 <!-- Footer -->
 <footer class="page-footer font-small pt-4 text-light" style="background-color: rgb(51, 51, 56);">

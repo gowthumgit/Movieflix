@@ -21,6 +21,8 @@ import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.component';
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
+import { BookingComponent } from './booking/booking.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { HomePageComponent } from './homeComponents/home-page/home-page.componen
        PaymentComponent,
        AdminLoginComponent,
        HomePageComponent,
+       BookingComponent,
+       
       
   ],
   imports: [
@@ -53,7 +57,8 @@ import { HomePageComponent } from './homeComponents/home-page/home-page.componen
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

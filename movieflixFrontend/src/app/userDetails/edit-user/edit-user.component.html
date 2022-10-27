@@ -1,6 +1,5 @@
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Edit User</h4>
+<div class="form-bg">
+    <div class="container">
         <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="formSubmitted">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -9,49 +8,68 @@
             <strong>Bingo!!!!!User edit successfully.....</strong>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <form novalidate [formGroup]="editUseForm">
-                    <div class="form-group">
-                        <label for="userId">User ID </label>
-                        <input type="text" name="userId" class="form-control" formControlName="userId"
-                            [ngClass]="{ 'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
-                        <div class="invalid-feedback">
-                            <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
+            <div class="offset-md-2 col-lg-6 col-md-7 offset-lg-3 offset-md-3">
+                <form novalidate [formGroup]="editUseForm" class="form-horizontal">
+                    <div class="header">User-Details</div>
+                    <div class="form-content">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label  class="control-label" for="userId">User ID </label>
+                                <input type="text" name="userId" class="form-control" formControlName="userId"
+                                    [ngClass]="{ 'is-invalid':userId.errors && (userId.touched || userId.dirty),'is-valid' :userId.valid}">
+                                <div class="invalid-feedback">
+                                    <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
+                                    <strong *ngIf="userId.errors?.['minlength']">User ID must be greater than 3 character</strong>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label  class="control-label" for="userEmail">User Email </label>
+                                <input type="text" name="userEmail" class="form-control" formControlName="userEmail"
+                                    [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
+                                <div class="invalid-feedback">
+                                    <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
+                                    <strong *ngIf="userEmail.errors?.['pattern']">Enter a Valid Email ID </strong>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label  class="control-label" for="userLanguage">User Language </label>
+                                <input type="text" name="userLanguage" class="form-control" formControlName="userLanguage"
+                                [ngClass]="{ 'is-invalid':userLanguage.errors && (userLanguage.touched || userLanguage.dirty),'is-valid' :userLanguage.valid}">
+                                <div class="invalid-feedback">
+                                    <strong *ngIf="userLanguage.errors?.['required']">Language is required </strong>
+                                    <strong *ngIf="userLanguage.errors?.['pattern']">Enter a Valid Language </strong>
+                                </div>
+                            </div>
+                        </div>
+                       
+                   
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label  class="control-label" for="userLocation">User Location </label>
+                                <input type="text" name="userLocation" class="form-control" formControlName="userLocation"
+                                [ngClass]="{ 'is-invalid':userLocation.errors && (userLocation.touched || userLocation.dirty),'is-valid' :userLocation.valid}">
+                                <div class="invalid-feedback">
+                                    <strong *ngIf="userLocation.errors?.['required']">Language is required </strong>
+                                    <strong *ngIf="userLocation.errors?.['pattern']">Enter a Valid Location </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <button type='submit' [disabled]="editUseForm.invalid" (click)="editUser()"
+                                class="btn btn-primary">Submit</button>
+                            <button type="button" (click)="editUseForm.reset()" class="btn btn-default">Reset</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="userEmail">User Email </label>
-                        <input type="text" name="userEmail" class="form-control" formControlName="userEmail"
-                            [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
-                        <div class="invalid-feedback">
-                            <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="userLanguage">User Language </label>
-                        <input type="text" name="userLanguage" class="form-control" formControlName="userLanguage">
-                    </div>
-                    <div class="form-group">
-                        <label for="userBalance">User balance </label>
-                        <input type="text" name="userBalance" class="form-control" formControlName="userBalance">
-                    </div>
-                   
-                    <div class="form-group">
-                        <label for="userLocation">User Location </label>
-                        <input type="text" name="userLocation" class="form-control" formControlName="userLocation">
-                    </div>
-                   
-
-
-                    <button type='submit' [disabled]="editUseForm.invalid" (click)="editUser()"
-                        class="btn btn-primary">Submit</button>
-                    <button type="button" (click)="editUseForm.reset()" class="btn btn-default">Reset</button>
                 </form>
             </div>
             
         </div>
     </div>
 </div>
+

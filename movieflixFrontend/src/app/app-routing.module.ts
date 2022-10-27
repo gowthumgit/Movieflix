@@ -16,6 +16,7 @@ import { ViewUserComponent } from './userDetails/view-user/view-user.component';
 import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
 import { PaymentComponent } from './payment/payment.component';
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path : 'home/viewuser',component:ViewUserComponent},
   {path : 'home/edituser/:id',component:EditUserComponent},
   {path : 'home/payment',component:PaymentComponent},
+  {path : 'home/booking',component:BookingComponent}
 
 
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { SharingService } from 'src/app/services/sharing.service';
@@ -24,16 +24,23 @@ export class EditUserComponent implements OnInit {
   user!:User;
   
   
-  constructor( private acRoute:ActivatedRoute,private router:Router,private sharingService:SharingService,private loginService:LoginService) {
+  constructor( public fb: FormBuilder,private acRoute:ActivatedRoute,private router:Router,private sharingService:SharingService,private loginService:LoginService) {
     //this.storageUpdate();
+    this.mainForm();
    }
 
   ngOnInit(): void {
-    this.userId=new FormControl();
-    this.userEmail=new FormControl();
-    this.userLanguage=new FormControl();
-    this.userLocation=new FormControl();
-    this.userBalance=new FormControl();
+    this.userId=new FormControl('', [Validators.required,Validators.minLength(3)]);
+    this.userEmail=new FormControl('',
+    [
+      Validators.required,
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+    ]);
+    this.userLanguage=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
+    this.userLocation=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
+    this.userBalance=new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
 
     this.editUseForm=new FormGroup({
       'userId':this.userId,
@@ -52,6 +59,27 @@ export class EditUserComponent implements OnInit {
   updateUser() {
     
   }
+   myForm(){
+    return this.editUseForm.controls;
+  }
+  mainForm() {
+    this.editUseForm = this.fb.group({
+      userId: ['', [Validators.required]],
+      userEmail: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+        ]
+      ],
+      userLanguage: ['', [Validators.required,Validators.maxLength(50),
+        Validators.pattern('^[a-zA-Z ]*$')]],
+      userLocation: ['', [Validators.required,Validators.maxLength(50),
+        Validators.pattern('^[a-zA-Z ]*$')]],
+      userBalance: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+    });
+  }
+
   getUser(id: any){
     this.loginService.getUserById(id).subscribe((data) =>{
       console.log("Edit user values")

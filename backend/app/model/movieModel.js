@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        
     },
     genre: {
         type: String,
@@ -35,6 +35,9 @@ var schema = new mongoose.Schema({
     },
     audi_ids : {
         type: Array
+    },
+    movieLocation:{
+        type: String,
     }
     
 });

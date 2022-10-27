@@ -12,10 +12,12 @@ import { SharingService } from 'src/app/services/sharing.service';
 })
 export class ViewUserComponent implements OnInit {
   user!:User;
+  loc!: String;
   
 
   constructor(private sharingService:SharingService,private route: Router) { 
     this.getUser();
+    this.getLocation();
   
   }
 
@@ -37,5 +39,10 @@ export class ViewUserComponent implements OnInit {
     }
   
   }
-  
+  getLocation(){
+    this.loc=this.sharingService.getLocation();
+    console.log("From getlocation");
+          console.log(this.loc);
+  }
+
 }

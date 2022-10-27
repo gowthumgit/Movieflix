@@ -8,29 +8,10 @@
                 width="20">
         </button>
     </form>
-
-    <a class="nav-link text-light" href="#">Movies <span class="sr-only">(current)</span></a>
-  
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            
-            <li class="nav-item dropdown text-white">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Chennai</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <li><a class="dropdown-item" routerLink="/home/bangalore">Bangalore</a></li>
-            <li><a class="dropdown-item" routerLink="/home/chennai">Chennai</a></li>
-            <li><a class="dropdown-item" routerLink="/home/delhi">Delhi</a></li>
-            <li><a class="dropdown-item" routerLink="/home/hyderbad">Hyderbad</a></li>
-            <li><a class="dropdown-item" routerLink="/home/mumbai">Mumbai</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <a class="dropdown-item" href="#">Show More</a>  
-        
-    </div>
+    <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
+    <a class="nav-link text-light" >{{this.loc}} <span class="sr-only">(current)</span></a>
     
-    </li>
+    
     <div class="dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
                   {{this.user.userId}} 
@@ -44,10 +25,6 @@
             <a class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
     </div>
-    
-
-
-    </ul>
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
@@ -55,8 +32,7 @@
 
 
 
-    </div>
-
+    
 </nav>
 
 

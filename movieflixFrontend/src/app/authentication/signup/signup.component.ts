@@ -66,6 +66,7 @@ export class SignupComponent implements OnInit {
         complete :()=>{
           this.router.navigateByUrl('/user');
           console.log('User added successfully')
+          this.addUseForm.reset();
         },
         error : (e :any) =>{
           console.log(e)

@@ -8,6 +8,7 @@ export class Movie{
     rating : Number=0;
     actors : Array<String>=[];
     audi_ids: Array<String>=[];
+    movieLocation:String='';
 
     constructor(){
         

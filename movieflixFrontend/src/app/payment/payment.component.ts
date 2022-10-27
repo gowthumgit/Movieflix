@@ -70,7 +70,7 @@ if (this.user.userBalance>= this.totalSeats*240)
  //this.user.userBalance -= this.totalSeats*240;
   alert("Payment successfull ")
 
-  let rout='/home/' + this.user.userLocation;
+  let rout='/home/booking';
   console.log(rout);
   this.route.navigate([rout]);
  
