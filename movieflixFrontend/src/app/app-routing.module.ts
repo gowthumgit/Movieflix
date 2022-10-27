@@ -1,11 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultHomeComponent } from './homeComponents/default-home/default-home.component';
-import { BangaloreHomeComponent } from './homeComponents/bangalore-home/bangalore-home.component';
-import { ChennaiHomeComponent } from './homeComponents/chennai-home/chennai-home.component';
-import { DelhiHomeComponent } from './homeComponents/delhi-home/delhi-home.component';
-import { HyderbadHomeComponent } from './homeComponents/hyderbad-home/hyderbad-home.component';
-import { MumbaiHomeComponent } from './homeComponents/mumbai-home/mumbai-home.component';
 import { AdminMoviesComponent } from './adminComponents/admin-movies/admin-movies.component';
 import { AdminChennaiMoviesComponent } from './adminComponents/admin-chennai-movies/admin-chennai-movies.component';
 import { AdminEditChennaiComponent } from './adminComponents/admin-edit-chennai/admin-edit-chennai.component';
@@ -20,6 +15,7 @@ import { UserDetailsComponent } from './adminComponents/user-details/user-detail
 import { ViewUserComponent } from './userDetails/view-user/view-user.component';
 import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
 import { PaymentComponent } from './payment/payment.component';
+import { HomePageComponent } from './homeComponents/home-page/home-page.component';
 
 
 
@@ -27,12 +23,8 @@ const routes: Routes = [
   {path : 'login',component:LoginComponent},
   {path : 'signup', component:SignupComponent},
   {path : 'home',component:DefaultHomeComponent},
-  {path : 'home/Bangalore',component:BangaloreHomeComponent},
+  {path : 'home/homepage',component:HomePageComponent},
   {path : 'admin/login',component:AdminLoginComponent},
-  {path : 'home/Chennai',component:ChennaiHomeComponent},
-  {path : 'home/Delhi',component:DelhiHomeComponent},
-  {path : 'home/Hyderabad',component:HyderbadHomeComponent},
-  {path : 'home/Mumbai',component:MumbaiHomeComponent},
   {path : 'home/movies',component:AdminMoviesComponent},
   {path : 'home/admchennai',component:AdminChennaiMoviesComponent},
   {path : 'home/admeditchennai/:movid',component:AdminEditChennaiComponent,},
@@ -43,7 +35,8 @@ const routes: Routes = [
   {path : 'admin/user',component:UserDetailsComponent},
   {path : 'home/viewuser',component:ViewUserComponent},
   {path : 'home/edituser/:id',component:EditUserComponent},
-  {path : 'home/payment',component:PaymentComponent}
+  {path : 'home/payment',component:PaymentComponent},
+
 
   
 ];

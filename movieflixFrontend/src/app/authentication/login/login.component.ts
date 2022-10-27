@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         // console.log(this.userVal);
         this.sharingService.setUser(this.userVal);
 
-        let rout='/home/' + this.users[i].userLocation;
+        let rout='/home/homepage' ;
         console.log(rout);
         this.route.navigate([rout]);
         //console.log(this.users.length);

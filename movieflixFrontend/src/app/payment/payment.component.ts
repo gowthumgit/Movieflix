@@ -19,13 +19,14 @@ export class PaymentComponent implements OnInit {
   Movie:any=[];
   tempValue!:Number;
   temp1Value!:Number;
-
+  loc!: String;
 
 
   constructor(private sharingService:SharingService,private route: Router,private movService:MovieServices) {
     this.getUser();
     this.getMovie();
     this.getTotalSeats();
+    this.getLocation();
    
   
    }
@@ -80,5 +81,11 @@ else {
 }
 
   }
+  getLocation(){
+    this.loc=this.sharingService.getLocation();
+    console.log("From getlocation");
+          console.log(this.loc);
+  }
+
 
 }

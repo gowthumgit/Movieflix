@@ -10,47 +10,23 @@
         </button>
 
     </form>
-
     <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
-
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-            <li class="nav-item dropdown text-white">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Bangalore</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <li><a class="dropdown-item" routerLink="/home/Bangalore">Bangalore</a></li>
-            <li><a class="dropdown-item" routerLink="/home/Chennai">Chennai</a></li>
-            <li><a class="dropdown-item" routerLink="/home/Delhi">Delhi</a></li>
-            <li><a class="dropdown-item" routerLink="/home/Hyderabad">Hyderabad</a></li>
-            <li><a class="dropdown-item" routerLink="/home/Mumbai">Mumbai</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-            <a class="dropdown-item" href="#">Show More</a>
-
-    </div>
-
-    </li>
+    <a class="nav-link text-light" >{{this.loc}} <span class="sr-only">(current)</span></a>
+    
+    
     <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            {{this.user.userId}}
-        </a>
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                  {{this.user.userId}} 
+    </a>
         <div class="dropdown-menu" aria-labelledby="triggerId">
             <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
             <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
-
+           
             <a class="dropdown-item" href="#">Wallet</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" (click)="logout()">Log Out</a>
         </div>
     </div>
-
-
-
-    </ul>
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
@@ -58,7 +34,7 @@
 
 
 
-    </div>
+    
 
 </nav>
 <div class="top_space">

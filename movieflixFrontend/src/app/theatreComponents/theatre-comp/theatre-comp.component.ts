@@ -22,10 +22,13 @@ export class TheatreCompComponent implements OnInit {
   user!: User;
   movieDetails!: Movie;
   movies: Movie[] = [];
+  loc!: String;
+  
   constructor(private theatService: TheatreService, private sharingService: SharingService, private movService: MovieServices, private acRoute: ActivatedRoute, private route: Router) {
     this.getAllTheatres();
     this.getMovie()
     this.getUser();
+    this.getLocation();
 
   }
 
@@ -100,6 +103,11 @@ export class TheatreCompComponent implements OnInit {
         this.route.navigate(['/login']);
       }
 
+    }
+    getLocation(){
+      this.loc=this.sharingService.getLocation();
+      console.log("From getlocation");
+            console.log(this.loc);
     }
 
 

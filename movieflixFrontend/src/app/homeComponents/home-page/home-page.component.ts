@@ -1,42 +1,38 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { MovieServices} from '../../services/movie-services.service';
 import { Movie } from 'src/app/models/movie';
-import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router'
-
 import { SharingService } from 'src/app/services/sharing.service';
 
 
 @Component({
-  selector: 'app-chennai-home',
-  templateUrl: './chennai-home.component.html',
-  styleUrls: ['./chennai-home.component.css']
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css']
 })
-export class ChennaiHomeComponent implements OnInit {
+export class HomePageComponent implements OnInit {
   @Input() moviename=[];
   
-  user!:User;
-  
-  
-  
+
   Moviename=Movie;
-
-
+  user!:User;
+  loc!: String;
+  
   constructor(private movService:MovieServices,private sharingService:SharingService,private route: Router) { 
     this.getAllMovies();
-    this.getUser();   
+    this.getUser();  
   }
   movies:any=[];
   movieVal!:Movie;
-
+  
 
   ngOnInit(): void {
   }
   getAllMovies(){
     this.movService.getMovies().subscribe((movdata)=>{
       this.movies=movdata;
-      
+      console.log(movdata);
     })
   }
 
@@ -51,7 +47,7 @@ export class ChennaiHomeComponent implements OnInit {
   passMovie(movie : Movie){
    this.movService.setMovie(movie);
   }
-
+  
 logout(){
   if(window.confirm('Are You sure?')){
   this.sharingService.clearUser();
@@ -63,6 +59,10 @@ logout(){
     
        
     this.user=this.sharingService.getUser();
+    this.loc=this.user.userLocation;
+    this.sharingService.setLocation(this.loc);
+  
+
     
     
   }
@@ -86,4 +86,21 @@ onMovieSelect(movieVal:Movie){
       this.sharingService.setMovie(movieVal);
    
 }
+dropLocation(str:any){
+  console.log("before changing in dropdown")
+  console.log(this.loc);
+  
+  this.loc=str;
+  this.sharingService.clearLocation();
+  this.sharingService.setLocation(str);
+  console.log("after changing in dropdown")
+  console.log(this.loc);
+  
+
+
+}
+
+
+
+
 }

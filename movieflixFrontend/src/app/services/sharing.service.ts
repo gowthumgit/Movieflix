@@ -11,6 +11,7 @@ export class SharingService {
   private adminDetails : string="adminDetails";
   private totalSeats : string = 'totalSeats';
   private timeDetails: string='timeDetails';
+  private locationDetails:string='locationDetails';
 
   
   userVal!: User;
@@ -39,6 +40,24 @@ export class SharingService {
   }
 
 
+//location
+setLocation(locationVal: any) {
+  localStorage.setItem(this.locationDetails, JSON.stringify(locationVal));
+//  console.log("from sharing set user service");
+ // console.log(userVal)
+}
+
+getLocation() {
+  let locationVal = localStorage.getItem(this.locationDetails);
+//  console.log("from sharing get user service");
+ // console.log(userVal)
+  
+  return JSON.parse(locationVal || '{}');
+}
+
+clearLocation() {
+  localStorage.removeItem(this.locationDetails);
+}
 
   //movie
   setMovie(movieVal: any) {
@@ -59,9 +78,6 @@ export class SharingService {
     localStorage.removeItem(this.movieDetails);
   }
 
-  cleanMovie() {
-    localStorage.clear()
-  }
 
 
 

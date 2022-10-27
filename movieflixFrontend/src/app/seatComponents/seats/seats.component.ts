@@ -33,6 +33,7 @@ export class SeatsComponent implements OnInit {
 
   toggle = true;
   status = 'Enable';
+  loc!: String;
 
 
 
@@ -44,6 +45,7 @@ export class SeatsComponent implements OnInit {
     this.getTheatre();
     this.getTheatreTime();
     this.getUser();
+    this.getLocation();
   }
 
   ngOnInit(): void {
@@ -118,6 +120,12 @@ payment(){
     this.route.navigate(['/home/payment']);
   }
 }
+getLocation(){
+  this.loc=this.sharingService.getLocation();
+  console.log("From getlocation");
+        console.log(this.loc);
+}
+
 }
 
 
