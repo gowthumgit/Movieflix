@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { SharingService } from 'src/app/services/sharing.service';
 import { User } from 'src/app/models/user';
+import { Movie } from 'src/app/models/movie';
+import { MovieServices } from 'src/app/services/movie-services.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -19,14 +21,21 @@ export class EditUserComponent implements OnInit {
   userLanguage!:FormControl;
   userLocation!:FormControl;
   userBalance!:FormControl;
-
+  loc!: String;
+  movieDetails!: Movie;
+  username!:String;
   userVal!:User;
   user!:User;
   
   
   constructor( public fb: FormBuilder,private acRoute:ActivatedRoute,private router:Router,private sharingService:SharingService,private loginService:LoginService) {
     //this.storageUpdate();
-    this.mainForm();
+    
+    this.getMovie();
+    this.getLocation();
+
+   
+    
    }
 
   ngOnInit(): void {
@@ -34,7 +43,7 @@ export class EditUserComponent implements OnInit {
     this.userEmail=new FormControl('',
     [
       Validators.required,
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
     ]);
     this.userLanguage=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),
       Validators.pattern('^[a-zA-Z ]*$')]);
@@ -62,28 +71,12 @@ export class EditUserComponent implements OnInit {
    myForm(){
     return this.editUseForm.controls;
   }
-  mainForm() {
-    this.editUseForm = this.fb.group({
-      userId: ['', [Validators.required]],
-      userEmail: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
-        ]
-      ],
-      userLanguage: ['', [Validators.required,Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$')]],
-      userLocation: ['', [Validators.required,Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$')]],
-      userBalance: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-    });
-  }
-
+  
   getUser(id: any){
     this.loginService.getUserById(id).subscribe((data) =>{
       console.log("Edit user values")
     console.log(data);
+    this.username=data['userId'];
     
       this.editUseForm.setValue({
         userId : data['userId'],
@@ -127,6 +120,26 @@ storageUpdate(){
       this.sharingService.setUser(this.user);
       
 }
+search(moviename:String){
+
+}
+logout(){
+  if (window.confirm('Are You sure?')) {
+    this.sharingService.clearUser();
+    this.router.navigate(['/login']);
+  }
+
+
+}
+getMovie() {
+  this.movieDetails = this.sharingService.getMovie();
+}
+getLocation(){
+  this.loc=this.sharingService.getLocation();
+  console.log("From getlocation");
+        console.log(this.loc);
+}
+
 
 
 }

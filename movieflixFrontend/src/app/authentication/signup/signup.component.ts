@@ -37,13 +37,22 @@ export class SignupComponent implements OnInit {
     private acRoute:ActivatedRoute,private router:Router,private useService:LoginService) { }
 
   ngOnInit(): void {
-    this.userId = new FormControl('',[Validators.required]);
-    this.userEmail = new FormControl('',[Validators.required]);
-    this.userLocation = new FormControl('',[Validators.required]);
-    this.userLanguage = new FormControl('',[Validators.required]);
+    this.userId = new FormControl('',[Validators.required,Validators.minLength(3)]);
+    this.userEmail = new FormControl('',[
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    ]);
+    this.userLocation = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
+    this.userLanguage = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
     this.userBalance = new FormControl('',[Validators.required]);
-    this.userPassword= new FormControl('',[Validators.required]);
-    this.reEnterPassword= new FormControl('',[Validators.required]);
+    this.userPassword= new FormControl('',[Validators.required,Validators.pattern(
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
+    ),Validators.minLength(8)]);
+    this.reEnterPassword= new FormControl('',[Validators.required,Validators.pattern(
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/
+    ),Validators.minLength(8)]);
  
     this.addUseForm = new FormGroup({
       'userId':this.userId,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieServices} from '../../services/movie-services.service';
 import { Movie} from '../../models/movie'
@@ -34,15 +34,17 @@ export class AdminAddChennaiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieId = new FormControl();
-    this.name = new FormControl();
-    this.genre = new FormControl();
-    this.image_url = new FormControl();
-    this.language = new FormControl();
-    this.duration = new FormControl();
-    this.rating = new FormControl();
-    this.actors = new FormControl();
-    this.audi_ids = new FormControl();
+    this.movieId = new FormControl('',[Validators.required,Validators.minLength(3)]);
+    this.name = new FormControl('',[Validators.required]);
+    this.genre = new FormControl('',[Validators.required]);
+    this.image_url = new FormControl('',[Validators.required]);
+    this.language = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
+    this.duration = new FormControl('',[Validators.required,Validators.pattern('^[0-9]+$')]);
+    this.rating = new FormControl('',[Validators.required,Validators.pattern('^[0-9]{1}$')]);
+    this.actors = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$')]);
+    this.audi_ids = new FormControl('',[Validators.required,Validators.minLength(3)]);
 
     this.addMovForm = new FormGroup({
       'movieId':this.movieId,

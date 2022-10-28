@@ -18,7 +18,9 @@
               <input class ="form-control" formControlName="userId" type="text" placeholder="User Id or User Name" tabindex="10" >
               </div>
               <div class="invalid-feedback">
-                <strong *ngIf = "userId.errors?.['required']">*User Id is required </strong>
+                <strong *ngIf="userId.errors?.['required']">User Id is required </strong>
+                <strong *ngIf="userId.errors?.['minlength']">User ID must be greater than 3
+                    character</strong>
               </div>
             </div>
 
@@ -28,7 +30,8 @@
                     <input class ="form-control" formControlName="userEmail" type="email" placeholder="User Email" tabindex="10" 
                     [ngClass]="{ 'is-invalid':userEmail.errors && (userEmail.touched || userEmail.dirty),'is-valid' :userEmail.valid}">
                     <div class="invalid-feedback">
-                        <strong *ngIf="userPassword.errors?.['required']">*User Passsword is required </strong>
+                      <strong *ngIf="userEmail.errors?.['required']">User Email is required </strong>
+                      <strong *ngIf="userEmail.errors?.['pattern']">Enter a Valid Email ID </strong>
                     </div>    
                 </div>
             </div>
@@ -39,7 +42,9 @@
                     <input class ="form-control" formControlName="userLocation" type="text" placeholder="User Location" tabindex="10" 
                     [ngClass]="{ 'is-invalid':userLocation.errors && (userLocation.touched || userLocation.dirty),'is-valid' :userLocation.valid}">
                     <div class="invalid-feedback">
-                        <strong *ngIf="userLocation.errors?.['required']">*User Location is required </strong>
+                      <strong *ngIf="userLocation.errors?.['required']">Location is required </strong>
+                      <strong *ngIf="userLocation.errors?.['pattern']">Enter a Valid Location
+                      </strong>
                     </div>    
                 </div>
             </div>
@@ -52,7 +57,12 @@
                 
                     <div class="invalid-feedback">
                         <strong *ngIf="userPassword.errors?.['required']">*User Passsword is required </strong>
-                    </div>
+                        <strong *ngIf="userPassword.errors?.['pattern']">
+                          Password must contain at least 1 number, 1 uppercase, a
+                          lowercase and a special Character<br />
+                        </strong>
+                        <strong *ngIf="userPassword.errors?.['minlength']">*User Passsword must be minimum 8 characters </strong>
+                      </div>
               </div>
             </div>
 
@@ -63,7 +73,12 @@
                     [ngClass]="{ 'is-invalid':userPassword.errors && (userPassword.touched || userPassword.dirty),'is-valid' :userPassword.valid}">
                 
                     <div class="invalid-feedback">
-                        <strong *ngIf="userPassword.errors?.['required']">*User Passsword is required </strong>
+                      <strong *ngIf="userPassword.errors?.['required']">*User Passsword is required </strong>
+                      <strong *ngIf="userPassword.errors?.['pattern']">
+                        Password must contain at least 1 number, 1 uppercase, a
+                        lowercase and a special Character<br />
+                      </strong>
+                      <strong *ngIf="userPassword.errors?.['minlength']">*User Passsword must be minimum 8 characters </strong>
                     </div>
               </div>
             </div>

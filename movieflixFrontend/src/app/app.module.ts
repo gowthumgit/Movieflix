@@ -23,6 +23,7 @@ import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.c
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { WalletComponent } from './userDetails/wallet/wallet.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { QRCodeModule } from 'angularx-qrcode';
        AdminLoginComponent,
        HomePageComponent,
        BookingComponent,
+       WalletComponent,
        
       
   ],
