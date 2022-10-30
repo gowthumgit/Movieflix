@@ -12,7 +12,7 @@ import { AdminAddChennaiComponent } from './adminComponents/admin-add-chennai/ad
 import { TheatreCompComponent } from './theatreComponents/theatre-comp/theatre-comp.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
-import { CartComponent } from './cart/cart.component';
+
 import { SeatComponent } from './seatComponents/seat/seat.component';
 import { SeatsComponent } from './seatComponents/seats/seats.component';
 import { UserDetailsComponent } from './adminComponents/user-details/user-details.component';
@@ -37,7 +37,7 @@ import { WalletComponentComponent } from './userDetails/wallet-component/wallet-
        TheatreCompComponent,
        LoginComponent,
        SignupComponent,
-       CartComponent,
+
        UserDetailsComponent,
        SeatComponent,
        SeatsComponent,
