@@ -21,6 +21,7 @@ export class BookingComponent implements OnInit {
   totalSeats:any;
   theatreDetails!:Theatre;
   time1!:Time1;
+  loc!: String;
 
 
   myAngularQrCode:any;
@@ -30,6 +31,8 @@ export class BookingComponent implements OnInit {
     this.getTotalSeats();
     this.getTheatre();
     this.getTheatreTime();
+    this.getLocation();
+   
 
     this.myAngularQrCode='Your Qr Code';
   }
@@ -61,6 +64,20 @@ export class BookingComponent implements OnInit {
   }
 
  
+  getLocation(){
+    this.loc=this.sharingService.getLocation();
+    console.log("From getlocation");
+          console.log(this.loc);
+  }
+  search(moviename:String){
 
+  }
+  logout(){
+    if(window.confirm('Are You sure?')){
+    this.sharingService.clearUser();
+    this.route.navigate(['/login']);
+    }
+  
+  }
 
 }

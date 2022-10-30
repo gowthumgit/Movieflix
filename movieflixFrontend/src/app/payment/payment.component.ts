@@ -4,6 +4,8 @@ import { Router } from '@angular/router'
 import { SharingService } from 'src/app/services/sharing.service';
 import { MovieServices} from '../services/movie-services.service';
 import { Movie } from 'src/app/models/movie';
+import { LoginService } from 'src/app/services/login.service';
+
 
 
 
@@ -20,9 +22,11 @@ export class PaymentComponent implements OnInit {
   tempValue!:Number;
   temp1Value!:Number;
   loc!: String;
+  userData!:User;
+  
 
 
-  constructor(private sharingService:SharingService,private route: Router,private movService:MovieServices) {
+  constructor(private sharingService:SharingService,private route: Router,private movService:MovieServices,private loginService:LoginService) {
     this.getUser();
     this.getMovie();
     this.getTotalSeats();
@@ -63,11 +67,23 @@ export class PaymentComponent implements OnInit {
 if (this.user.userBalance>= this.totalSeats*240)
 {
   console.log("from payment if cond");
+  this.userData=this.sharingService.getUser();
+  let id = this.userData._id;
+      this.userData.userBalance = Number(this.userData.userBalance) - (this.totalSeats*240);
+      this.loginService.updateUser(id,this.userData).subscribe({
+        complete :()=>{
+          this.route.navigateByUrl('/user');
+          console.log('User updated successfully')
+        },
+        
+        error : (e) =>{
+          console.log(e)
+        }
+      
+      });
+      
+      this.sharingService.setUser(this.userData);
   
-  //this.tempValue =this.user.userBalance ;
-  //this.temp1Value = (this.totalSeats*240);
-
- //this.user.userBalance -= this.totalSeats*240;
   alert("Payment successfull ")
 
   let rout='/home/booking';
@@ -77,6 +93,9 @@ if (this.user.userBalance>= this.totalSeats*240)
 }
 else {
   alert("Payment Unsuccessfull due to insufficient Funds ");
+  if(window.confirm('Want you add Money to ur Wallet?')){
+this.route.navigate(['/home/wallet']);
+  }
 
 }
 
@@ -87,7 +106,7 @@ else {
           console.log(this.loc);
   }
   search(moviename:String){
-    
+
   }
 
 

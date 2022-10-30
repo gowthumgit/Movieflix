@@ -20,9 +20,13 @@ export class WalletComponentComponent implements OnInit {
   cvvNumber!:FormControl;
   amount!:FormControl;
   userData!:User;
+  user!:User;
+  loc!: String;
 
   constructor(public fb: FormBuilder,private acRoute:ActivatedRoute,private router:Router,private sharingService:SharingService,private loginService:LoginService) {
-   
+    this.getUser();
+    this.getLocation();
+    
    }
    
 
@@ -69,6 +73,31 @@ export class WalletComponentComponent implements OnInit {
       alert("Payment Successful!!!!!")
     }
 }
+getUser(){
+    
+       
+  this.user=this.sharingService.getUser();
+  console.log("Checking Values ")
+  console.log(this.user._id)
   
+  
+}
+
+logout(){
+  if(window.confirm('Are You sure?')){
+  this.sharingService.clearUser();
+  this.router.navigate(['/login']);
+  }
+
+}
+getLocation(){
+  this.loc=this.sharingService.getLocation();
+  console.log("From getlocation");
+        console.log(this.loc);
+}
+search(moviename:String){
+  
+}
+
 
 }
