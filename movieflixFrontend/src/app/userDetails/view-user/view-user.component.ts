@@ -44,5 +44,8 @@ export class ViewUserComponent implements OnInit {
     console.log("From getlocation");
           console.log(this.loc);
   }
+  search(moviename:String){
+
+  }
 
 }

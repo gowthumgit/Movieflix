@@ -23,19 +23,16 @@ import { AdminLoginComponent } from './adminComponents/admin-login/admin-login.c
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { WalletComponent } from './userDetails/wallet/wallet.component';
+import { WalletComponentComponent } from './userDetails/wallet-component/wallet-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
     DefaultHomeComponent,
     AdminChennaiMoviesComponent,
     AdminMoviesComponent,
     AdminEditChennaiComponent,
-  
     AdminAddChennaiComponent,
        TheatreCompComponent,
        LoginComponent,
@@ -50,7 +47,8 @@ import { WalletComponent } from './userDetails/wallet/wallet.component';
        AdminLoginComponent,
        HomePageComponent,
        BookingComponent,
-       WalletComponent,
+       WalletComponentComponent,
+       
        
       
   ],
@@ -60,7 +58,9 @@ import { WalletComponent } from './userDetails/wallet/wallet.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    QRCodeModule
+    QRCodeModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

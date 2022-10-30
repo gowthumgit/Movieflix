@@ -77,7 +77,8 @@ body {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -ms-box-shadow: none
+  -ms-box-shadow: none;
+  
 }
 .mx-auto {
   margin-right: auto !important;

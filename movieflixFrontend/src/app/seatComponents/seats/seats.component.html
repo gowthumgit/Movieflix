@@ -8,72 +8,60 @@
                 src="https://www.nicepng.com/png/detail/853-8539483_png-file-search-button-icon-png.png" alt=""
                 width="20">
         </button>
-
     </form>
+
     <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
-    <a class="nav-link text-light" >{{this.loc}} <span class="sr-only">(current)</span></a>
-    
-    
+    <a class="nav-link text-light">{{this.loc}} <span class="sr-only">(current)</span></a>
+
     <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                  {{this.user.userId}} 
-    </a>
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{this.user.userId}}
+        </a>
         <div class="dropdown-menu" aria-labelledby="triggerId">
             <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
             <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
-           
-            <a class="dropdown-item" href="#">Wallet</a>
+            <a class="dropdown-item" routerLink="/home/wallet">Wallet</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Log Out</a>
+                <a class="dropdown-item" (click)="logout()">Log Out</a>
+            
         </div>
     </div>
+
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
-
-
-
-
-    
-
 </nav>
+
+
+
 <div class="top_space">
-    <div class="jumbotron jumbotron-fluid" >
+    <div class="jumbotron jumbotron-fluid">
         <div class="container" style="text-align: center; ">
             <h1 class="display-3"><b>{{this.movie.name}}</b></h1>
             <h3>{{this.theatre.theatreName}}</h3>
             <h3>{{time1}}</h3>
 
-
             <hr class="my-2">
-        
+
             <form action="">
-                
 
                 <br>
                 <label for="seats_order">Number of seats selected: </label>
                 <h5>{{finalValue}}</h5>
-                
                 <button type="button" class="btn btn-primary" (click)="payment()"> Proceed to payment</button>
             </form>
-
-
-
         </div>
     </div>
+
+
     <div class="container-fluid">
         <div class="card" style="padding-left:30px">
-
             <div class="row">
                 <app-seat [seat]="seat" *ngFor="let seat of seats" style="margin-bottom: 10px" class="col-md-1"
                     (click)="enableDisableRule()">
                 </app-seat>
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>
@@ -134,11 +122,9 @@
                                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                             style="border-radius: 30%;height :40px; width:40px" alt=""></i></button>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

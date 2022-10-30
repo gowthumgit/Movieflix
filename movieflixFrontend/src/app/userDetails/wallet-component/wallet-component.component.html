@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+
+
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-6"> Add Money </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="card ">
+                    <div class="card-header">
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+
+                            <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                                <li class="nav-item"> <a data-toggle="pill" class="nav-link active "> <i
+                                            class="fas fa-credit-card mr-2"></i> Credit / Debit Card </a> </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div id="credit-card" class="tab-pane fade show active pt-3">
+                                <form novalidate [formGroup]="walletForm" role="form" onsubmit="event.preventDefault()">
+                                    <div class="form-group"> <label for="username">
+                                            <h6>Card Owner</h6>
+                                        </label> <input type="text" name="username" placeholder="Card Owner Name"
+                                            required formControlName="username" class="form-control "
+                                            [ngClass]="{ 'is-invalid':username.errors && (username.touched || username.dirty),'is-valid' :username.valid}">
+                                        <div class="invalid-feedback">
+                                            <strong *ngIf="username.errors?.['required']">Name is required </strong>
+                                            <strong *ngIf="username.errors?.['minlength']">Name must be greater than 3
+                                                character</strong>
+                                            <strong *ngIf="username.errors?.['pattern']">Name Should not have numbers or
+                                                special characters</strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group"> <label for="cardNumber">
+                                            <h6>Card number</h6>
+                                        </label>
+                                        <div class="input-group"> <input type="text" name="cardNumber"
+                                                placeholder="Valid card number" class="form-control " required
+                                                formControlName="cardNumber"
+                                                [ngClass]="{ 'is-invalid':cardNumber.errors && (cardNumber.touched || cardNumber.dirty),'is-valid' :cardNumber.valid}">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text text-muted">
+                                                    <i class="fab fa-cc-visa mx-1"></i>
+                                                    <i class="fab fa-cc-mastercard mx-1"></i>
+                                                    <i class="fab fa-cc-amex mx-1"></i>
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <strong *ngIf="cardNumber.errors?.['required']">Card Number is required
+                                                </strong>
+                                                <strong *ngIf="cardNumber.errors?.['pattern']">Enter a valid Card Number
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group"> <label><span class="hidden-xs">
+                                                        <h6>Expiration Date</h6>
+                                                    </span></label>
+                                                    <select class="form-control" name="cc_exp_mo" size="0">
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group"> <label>
+                                                    <span class="hidden-xs">
+                                                        <h6>Year</h6>
+                                                    </span></label>
+                                                   
+                                                    <select class="form-control" name="cc_exp_yr" size="0">
+                                                        <option>2022</option>
+                                                        <option>2023</option>
+                                                        <option>2024</option>
+                                                        <option>2025</option>
+                                                        <option>2026</option>
+                                                        <option>2027</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-4">
+                                            <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                                    title="Three digit CV code on the back of your card">
+                                                    <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                                </label> <input type="text" required class="form-control"
+                                                    formControlName="cvvNumber"
+                                                    [ngClass]="{ 'is-invalid':cvvNumber.errors && (cvvNumber.touched || cvvNumber.dirty),'is-valid' :cvvNumber.valid}">
+                                                <div class="invalid-feedback">
+                                                    <strong *ngIf="cvvNumber.errors?.['required']">CVV Number is
+                                                        required </strong>
+                                                    <strong *ngIf="cvvNumber.errors?.['pattern']">Enter a valid CVV
+                                                        Number </strong>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="form-group"> <label><span class="hidden-xs">
+                                                        <h6>Enter Amount</h6>
+                                                    </span></label>
+                                                <div class="input-group"> <input type="number"
+                                                        placeholder="Enter an amount" name="" class="form-control"
+                                                        required formControlName="amount"
+                                                        [ngClass]="{ 'is-invalid':amount.errors && (amount.touched || amount.dirty),'is-valid' :amount.valid}">
+                                                    <div class="invalid-feedback">
+                                                        <strong *ngIf="amount.errors?.['required']">Enter an amount
+                                                        </strong>
+                                                        <strong *ngIf="amount.errors?.['pattern']">Enter an Valid amount
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                                    title="Enter Amount in Rupess">
+                                                    <h6>Rupees<i class="fa fa-question-circle d-inline"></i></h6>
+                                                </label> <input type="text" placeholder=".00" required
+                                                    class="form-control" disabled> </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer"> <button type="button" (click)="editUser()"
+                                            class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>>

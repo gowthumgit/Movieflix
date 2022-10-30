@@ -17,7 +17,7 @@ import { EditUserComponent } from './userDetails/edit-user/edit-user.component';
 import { PaymentComponent } from './payment/payment.component';
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
 import { BookingComponent } from './booking/booking.component';
-import { WalletComponent } from './userDetails/wallet/wallet.component';
+import { WalletComponentComponent } from './userDetails/wallet-component/wallet-component.component';
 
 
 
@@ -39,7 +39,8 @@ const routes: Routes = [
   {path : 'home/edituser/:id',component:EditUserComponent},
   {path : 'home/payment',component:PaymentComponent},
   {path : 'home/booking',component:BookingComponent},
-  {path : 'home/wallet',component:WalletComponent}
+  {path:'home/wallet',component:WalletComponentComponent}
+  
 
 
   

@@ -2,42 +2,37 @@
     <a class="navbar-brand" routerLink="/home/homepage"><img
             src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="100" alt=""></a>
     <form class="d-flex me-5">
-        <input class="form-control me -5 mr-sm-2" type="text" placeholder="Search for movies">
-        <button class="xy bg-white me-5 rounded-"><img
+        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename"
+            placeholder="Search for movies" #moviename>
+        <button class="xy bg-white me-5 rounded-" (click)="search(moviename.value)"><img
                 src="https://www.nicepng.com/png/detail/853-8539483_png-file-search-button-icon-png.png" alt=""
                 width="20">
         </button>
     </form>
+
     <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
-    <a class="nav-link text-light" >{{this.loc}} <span class="sr-only">(current)</span></a>
-    
-    
+    <a class="nav-link text-light">{{this.loc}} <span class="sr-only">(current)</span></a>
+
+
     <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                  {{this.user.userId}} 
-    </a>
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{this.user.userId}}
+        </a>
         <div class="dropdown-menu" aria-labelledby="triggerId">
             <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
             <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
-           
-            <a class="dropdown-item" href="#">Wallet</a>
+            <a class="dropdown-item" routerLink="/home/wallet">Wallet</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Log Out</a>
+                <a class="dropdown-item" (click)="logout()">Log Out</a>
+            
         </div>
     </div>
+
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
-
-
-
-
-    
-
 </nav>
-
-
-
 
 
 
@@ -49,7 +44,6 @@
         <br><br>
         <h5>{{movieDetails.genre}}</h5>
     </div>
-
 
     <div class="main-container ">
         
@@ -75,11 +69,7 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
-
 
 
 <br><br>
@@ -140,11 +130,9 @@
                                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                             style="border-radius: 30%;height :40px; width:40px" alt=""></i></button>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

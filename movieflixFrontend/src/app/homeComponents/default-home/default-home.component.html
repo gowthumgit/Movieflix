@@ -36,7 +36,8 @@
     </div>
 
     </li>
-    <button class="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal" routerLink='/login'>SignIn</button>
+    <button class="  btn btn-danger mx-5" data-bs-toggle="modal" data-bs-target="#loginModal"
+        routerLink='/login'>SignIn</button>
 
     </ul>
 
@@ -100,29 +101,37 @@
 <div class="mx-5 mt-4" style=" text-align: center;">
     <h2>Recommended Movies</h2>
 </div>
-<div class="row border-0" style=" text-align: center;">
-    <div class="card col-sm-3 border-0 text-align: center;" *ngFor="let mov of movies.slice().reverse(); let i = index;">
-        <div *ngIf="i<12" let>
-            
-            <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
-            <div class="card-body border-0">
-                <h5 class="card-title">{{mov.name}}</h5>
-                <p class="card-text">{{mov.genre}}</p>
-            </div>
 
-            <div class="card-footer">
-                <div class="btn-group">
+    <div class="row border-0" style=" text-align: center;">
 
-                    <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/login'
-                        (click)="passMovie(mov)">Book now</button>
+        <div class="card col-sm-3 border-0 text-align: center;"
+            *ngFor="let mov of movies.slice().reverse(); let i = index;">
+            <div *ngIf="i<12" let>
 
+                <img class="card-img-top" src="{{mov.image_url}}" alt="Card image cap">
+                <div class="card-body border-0">
+                    <h5 class="card-title">{{mov.name}}</h5>
+                    <p class="card-text">{{mov.genre}}</p>
+                </div>
+
+                <div class="card-footer">
+                    <div class="btn-group">
+
+                        <button type="button" class="btn btn-primary  mr-3 float-left" routerLink='/login'
+                            (click)="passMovie(mov)">Book now</button>
+
+                    </div>
                 </div>
             </div>
+            
+
         </div>
         <br>
-
     </div>
-</div>
+
+
+
+
 <footer class="page-footer font-small pt-4 text-light" style="background-color: rgb(51, 51, 56);">
     <ul class="nav justify-content-center  pb-3 mb-3">
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>

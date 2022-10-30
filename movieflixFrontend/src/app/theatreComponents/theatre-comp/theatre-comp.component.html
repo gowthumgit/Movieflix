@@ -2,56 +2,47 @@
     <a class="navbar-brand" routerLink="/home/homepage"><img
             src="https://www.solu.co/wp-content/uploads/2022/09/Moviesflix-1024x576-1.webp" width="100" alt=""></a>
     <form class="d-flex me-5">
-        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename"  placeholder="Search for movies" #moviename>
+        <input class="form-control me -5 mr-sm-2" type="text" id="moviename" name="moviename"
+            placeholder="Search for movies" #moviename>
         <button class="xy bg-white me-5 rounded-" (click)="search(moviename.value)"><img
                 src="https://www.nicepng.com/png/detail/853-8539483_png-file-search-button-icon-png.png" alt=""
                 width="20">
         </button>
-    
     </form>
 
     <a class="nav-link text-light" routerLink="/home/Chennai">Movies <span class="sr-only">(current)</span></a>
-    <a class="nav-link text-light" >{{this.loc}} <span class="sr-only">(current)</span></a>
-    
-    
+    <a class="nav-link text-light">{{this.loc}} <span class="sr-only">(current)</span></a>
+
+
     <div class="dropdown">
-        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
-                  {{this.user.userId}} 
-    </a>
+        <a class="nav-link dropdown-toggle text-white" href="#" id="dropdownId" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{this.user.userId}}
+        </a>
         <div class="dropdown-menu" aria-labelledby="triggerId">
             <a class="dropdown-item" routerLink="/home/viewuser">View User</a>
             <a class="dropdown-item " routerLink="/home/edituser">Edit User</a>
-           
-            <a class="dropdown-item" href="#">Wallet</a>
+            <a class="dropdown-item" routerLink="/home/wallet">Wallet</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" (click)="logout()">Log Out</a>
+                <a class="dropdown-item" (click)="logout()">Log Out</a>
+            
         </div>
     </div>
-    
 
-
-    
     <img src="https://tse2.mm.bing.net/th?id=OIP.odaf7cByFm01EzzkUtL1GQHaHa&pid=Api&P=0" width="50"
         routerLink="/home/viewuser"
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
-
-
-
-
-    
-
 </nav>
 
 
 
 
 <div class="top_space bg-light">
-
     <div class="card-body bg-secondary" style=" text-align: center;">
         <h1>{{movieDetails.name}} - {{movieDetails.language}}</h1>
-       <img class="movieImage" src="{{movieDetails.image_url}}">
-       <br><br>
-       <h5>{{movieDetails.genre}}</h5>
+        <img class="movieImage" src="{{movieDetails.image_url}}">
+        <br><br>
+        <h5>{{movieDetails.genre}}</h5>
     </div>
 
     <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let thet of theatres; let i =index">
@@ -59,43 +50,15 @@
             <h5 class="card-title">{{thet.theatreName}}:{{thet.theatreType}}</h5>
             <p class="card-text">[M-Ticket] [Food & Beverage]</p>
             <p class="card-text"></p>
-
-            <div >
-
-             <span *ngFor="let time of thet.showTime"  >
-                    <button type="button " class="timeButton btn-primary margin-left "  (click)="onTheatreSelect(thet,time)" routerLink="/home/seat">{{time}}</button>    
-
+            <div>
+                <span *ngFor="let time of thet.showTime">
+                    <button type="button " class="timeButton btn-primary margin-left "
+                        (click)="onTheatreSelect(thet,time)" routerLink="/home/seat">{{time}}</button>
                 </span>
             </div>
         </div>
     </div>
-
 </div>
-
-<!-- <div class="top_space bg-light">
-
-    <div class="card-body bg-secondary" style=" text-align: center;">
-        <h1>{{movie.name}} - {{movie.language}}</h1>
-       <img class="movieImage" src="{{movie.image_url}}">
-    </div>
-
-    <div class="card w-75 bg-white" style="background-color:#D0D3D4 " *ngFor="let theatre of Theatre; let i =index">
-        <div class="card-body">
-            <h5 class="card-title">{{theatre.theatreName}}:{{theatre.theatreType}}</h5>
-            <p class="card-text">[M-Ticket] [Food & Beverage]</p>
-            <p class="card-text"></p>
-
-            <div >
-                <span *ngFor="let time of theatre.showTime"  >
-                    <button type="button " class="timeButton btn btn-primary margin-left" routerLink="/home/seat">{{time}}</button>    
-
-                </span>
-            </div>
-        </div>
-    </div>
-
-</div> 
- -->
 
 
 <!-- Footer -->
@@ -111,7 +74,6 @@
     <div class="page-content page-container  mx-auto" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center mx-auto">
-
                 <div class="col-md-6 grid-margin stretch-card mx-auto ">
                     <div class="mx-auto card-footer">
                         <div class="mx-auto">
@@ -145,7 +107,6 @@
                                         <img src="https://pbs.twimg.com/profile_images/1318652224638124032/wrpp2Nl4_400x400.png"
                                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                             style="border-radius: 30%;height :40px; width:40px auto" alt="">
-
                                     </i></button>
                                 <button type="button" onclick="window.location.href='https://www.pinterest.com/'"
                                     class="btn btn-social-icon btn-outline-pintrest"><i class="fa fa-pintrest">
@@ -153,13 +114,10 @@
                                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                             style="border-radius: 30%;height :40px; width:40px" alt=""></i></button>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </footer>
-<!-- Footer -->
