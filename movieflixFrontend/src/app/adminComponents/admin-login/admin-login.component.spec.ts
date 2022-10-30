@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminLoginComponent } from './admin-login.component';
 
@@ -20,4 +20,4 @@ describe('AdminLoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

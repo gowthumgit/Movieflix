@@ -111,3 +111,30 @@ this.route.navigate(['/home/wallet']);
 
 
 }
+
+export function paymentVerify2(balance:Number,seats:any){
+    
+  console.log("from payment");
+  let result='';
+  if (balance>= seats*240)
+  {
+    console.log("from payment if cond");
+
+//this.tempValue =this.user.userBalance ;
+//this.temp1Value = (this.totalSeats*240);
+
+//this.user.userBalance -= this.totalSeats*240;
+  result="Payment Succesful";
+
+    let rout='/home/booking';
+    console.log(rout);
+    //this.route.navigate([rout]);
+
+  }
+else {
+    result="Payment Unsuccessfull";
+
+  }
+  return result;
+
+}
