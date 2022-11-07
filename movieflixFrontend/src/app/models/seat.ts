@@ -3,6 +3,6 @@ export class Seat{
     col:String='';
     seatname:String='';
     //audiId:String='';
-    occupied:String='';
+    occupied:Boolean=true;
     //price:Number=0;
     }

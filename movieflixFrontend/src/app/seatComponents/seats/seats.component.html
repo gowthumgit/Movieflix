@@ -47,6 +47,8 @@
             <form action="">
 
                 <br>
+                <span>Seats Selected: </span><span *ngFor="let a of seatsSelected; let indexOfelement=index"><b>{{seatsSelected[indexOfelement]}} </b></span>
+                <br>
                 <label for="seats_order">Number of seats selected: </label>
                 <h5>{{finalValue}}</h5>
                 <button type="button" class="btn btn-primary" (click)="payment()"> Proceed to payment</button>
@@ -58,9 +60,17 @@
     <div class="container-fluid">
         <div class="card" style="padding-left:30px">
             <div class="row">
-                <app-seat [seat]="seat" *ngFor="let seat of seats" style="margin-bottom: 10px" class="col-md-1"
+                <!--<app-seat [seat]="seat" *ngFor="let seat of seats" style="margin-bottom: 10px" class="col-md-1"
                     (click)="enableDisableRule()">
-                </app-seat>
+                </app-seat>-->
+                <div class= "col-md-1" *ngFor="let seat of seats">
+                <button class="btn btn-primary" 
+                style="margin-bottom: 10px"
+                    (click)="enableDisableRule(seat)" 
+                    [ngClass]="{'green' : seat.occupied, 'red': !seat.occupied}">
+                    {{seat.seatname}}
+                </button>
+            </div>
             </div>
         </div>
     </div>
