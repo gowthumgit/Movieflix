@@ -23,6 +23,7 @@ export class PaymentComponent implements OnInit {
   temp1Value!:Number;
   loc!: String;
   userData!:User;
+  seatNumbers:any=[];
   
 
 
@@ -31,6 +32,7 @@ export class PaymentComponent implements OnInit {
     this.getMovie();
     this.getTotalSeats();
     this.getLocation();
+    this.getseatnumbers();
    
   
    }
@@ -50,6 +52,11 @@ export class PaymentComponent implements OnInit {
     console.log(this.user._id)
     
     
+  }
+
+  getseatnumbers(){
+    this.seatNumbers=this.sharingService.getSeatNumbers();
+
   }
   logout(){
     if(window.confirm('Are You sure?')){

@@ -254,7 +254,7 @@ export class SeatService {
           "row" : "C",
           "col" : "5",
           "seatname" : "D4",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",
@@ -290,7 +290,7 @@ export class SeatService {
           "row" : "C",
           "col" : "5",
           "seatname" : "D10",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",
@@ -314,7 +314,7 @@ export class SeatService {
           "row" : "C",
           "col" : "5",
           "seatname" : "E2",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",

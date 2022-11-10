@@ -280,7 +280,7 @@ export class SeatsComponent implements OnInit {
           "row" : "C",
           "col" : "5",
           "seatname" : "D4",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",
@@ -316,7 +316,7 @@ export class SeatsComponent implements OnInit {
           "row" : "C",
           "col" : "5",
           "seatname" : "D10",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",
@@ -340,7 +340,7 @@ export class SeatsComponent implements OnInit {
           "row" : "C",
           "col" : "5",
           "seatname" : "E2",
-          "occupied" : false
+          "occupied" : true
       },
       {
           "row" : "C",
@@ -350,7 +350,7 @@ export class SeatsComponent implements OnInit {
       },
 
   ];
-    this.seats = seatService.getSeats();
+    //this.seats = seatService.getSeats();
     this.getMovie();
     this.getTheatre();
     this.getTheatreTime();
@@ -361,7 +361,7 @@ export class SeatsComponent implements OnInit {
   ngOnInit(): void {
   }
   enableDisableRule(seat:Seat) {
-    console.log("from seat component");
+   
     
     if (seat.occupied==true) {
       this.finalValue = this.finalValue + 1;
@@ -382,11 +382,15 @@ export class SeatsComponent implements OnInit {
       if (index > -1) {
         this.seatsSelected.splice(index, 1);
       }
+      console.log("from line 385")
+  
       console.log(this.seatsSelected);
       console.log(this.finalValue);
 
     }
+   
     this.sharingService.setTotalSeats(this.finalValue);
+    this.sharingService.setSeatNumbers(this.seatsSelected);
 
     //this.status = this.toggle ? 'Enable' : 'Disable';
   }

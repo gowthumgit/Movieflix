@@ -12,6 +12,7 @@ export class SharingService {
   private totalSeats : string = 'totalSeats';
   private timeDetails: string='timeDetails';
   private locationDetails:string='locationDetails';
+  private seatNumbers:string='seatNumbers';
 
   
   userVal!: User;
@@ -128,6 +129,22 @@ clearLocation() {
 
 
 
+  setSeatNumbers(seatnumbers: any) {
+    localStorage.setItem(this.seatNumbers, JSON.stringify(seatnumbers));
+    console.log("from sharing get setseatnumber service");
+  }
+
+  getSeatNumbers() {
+    let seatNumbers = localStorage.getItem(this.seatNumbers);
+  //  console.log("from sharing get user service");
+   // console.log(userVal)
+    
+    return JSON.parse(seatNumbers || '{}');
+  }
+
+  clearseatNumbers() {
+    localStorage.removeItem(this.seatNumbers);
+  }
 
 
   //Admin

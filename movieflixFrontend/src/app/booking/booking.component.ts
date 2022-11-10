@@ -22,7 +22,7 @@ export class BookingComponent implements OnInit {
   theatreDetails!:Theatre;
   time1!:Time1;
   loc!: String;
-
+  seatNumbers:any=[];
 
   myAngularQrCode:any;
   constructor(private sharingService:SharingService,private route:Router,private movService:MovieServices,private theatService:TheatreService) { 
@@ -32,6 +32,7 @@ export class BookingComponent implements OnInit {
     this.getTheatre();
     this.getTheatreTime();
     this.getLocation();
+    this.getseatnumbers();
    
 
     this.myAngularQrCode='Your Qr Code';
@@ -41,6 +42,11 @@ export class BookingComponent implements OnInit {
   }
   getMovie(){
     this.movieDetails=this.sharingService.getMovie();
+  }
+
+  getseatnumbers(){
+    this.seatNumbers=this.sharingService.getSeatNumbers();
+
   }
 
   getUser(){
