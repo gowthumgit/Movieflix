@@ -2,7 +2,7 @@
 
 import { Seat } from "../models/seat";
 
-export class MockData {
+export class MockData {/*
     public static Seats : Seat[] = [
         {
             "row" : "A",
@@ -313,5 +313,5 @@ export class MockData {
             "occupied" : "true"
         },
 
-    ]
+    ]*/
 }

@@ -1,9 +1,22 @@
-.true{
-    background: rgb(114, 112, 112);
+
+.green {
+  color:rgb(216, 215, 231);
+  background-color:rgb(102, 115, 225)
 }
 
-.false{
-    background-color: brown;
+.red {
+  color:rgb(216, 215, 231) ;
+  background-color:rgb(213, 74, 83)
+}
+
+true{
+  color:rgb(216, 215, 231);
+  background-color:rgb(102, 115, 225)
+}
+
+false{
+  color:rgb(216, 215, 231) ;
+  background-color:rgb(213, 74, 83)
 }
 nav form
 {

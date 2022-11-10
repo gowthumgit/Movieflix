@@ -29,7 +29,7 @@ export class SeatsComponent implements OnInit {
   finalValue = 0;
 
   seats: Seat[] = [];
-  rows: String[] = ["A", "B", "C", "D", "E"];
+  seatsSelected: String[] = [];
 
   toggle = true;
   status = 'Enable';
@@ -39,7 +39,317 @@ export class SeatsComponent implements OnInit {
 
 
   constructor(private seatService: SeatService, private route: Router, private sharingService: SharingService) {
-    this.seats = MockData.Seats;
+    this.seats = [
+      {
+          "row" : "A",
+          "col" : "1",
+          "seatname" : "A1",
+          "occupied" : true
+      },
+      {
+          "row" : "A",
+          "col" : "2",
+          "seatname" : "A2",
+          "occupied" : true
+      },
+      {
+          "row" : "A",
+          "col" : "3",
+          "seatname" : "A3",
+          "occupied" : true
+      },
+      {
+          "row" : "A",
+          "col" : "4",
+          "seatname" : "A4",
+          "occupied" : true
+      },
+      {
+          "row" : "A",
+          "col" : "5",
+          "seatname" : "A5",
+          "occupied" : true
+      },
+      {
+          "row" : "B",
+          "col" : "1",
+          "seatname" : "A6",
+          "occupied" : true
+      },
+      {
+          "row" : "B",
+          "col" : "2",
+          "seatname" : "A7",
+          "occupied" : true
+      },
+      {
+          "row" : "B",
+          "col" : "3",
+          "seatname" : "A8",
+          "occupied" : true
+      },
+      {
+          "row" : "B",
+          "col" : "4",
+          "seatname" : "A9",
+          "occupied" : true
+      },
+      {
+          "row" : "B",
+          "col" : "5",
+          "seatname" : "A10",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "1",
+          "seatname" : "A11",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "2",
+          "seatname" : "A12",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "3",
+          "seatname" : "B1",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "4",
+          "seatname" : "B2",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B3",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B4",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B5",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B6",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B7",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B8",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B9",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B10",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B11",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "B12",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C1",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C2",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C3",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C4",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C5",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C6",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C7",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C8",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C9",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C10",
+          "occupied" : true
+      },
+      
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C11",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "C12",
+          "occupied" : true
+      },
+      
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D1",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D2",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D3",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D4",
+          "occupied" : false
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D5",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D6",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D7",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D8",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D9",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D10",
+          "occupied" : false
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D11",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "D12",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "E1",
+          "occupied" : true
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "E2",
+          "occupied" : false
+      },
+      {
+          "row" : "C",
+          "col" : "5",
+          "seatname" : "E3",
+          "occupied" : true
+      },
+
+  ];
     this.seats = seatService.getSeats();
     this.getMovie();
     this.getTheatre();
@@ -50,26 +360,35 @@ export class SeatsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  enableDisableRule() {
+  enableDisableRule(seat:Seat) {
     console.log("from seat component");
-    this.toggle = !this.toggle;
-    if (this.status == 'Disable') {
+    
+    if (seat.occupied==true) {
       this.finalValue = this.finalValue + 1;
-
-      // console.log(this.userVal);
+      seat.occupied = !seat.occupied;
+      this.seatsSelected.push(seat.seatname);
+      console.log(this.seatsSelected);
+      console.log(seat.seatname);
+      console.log(seat.occupied);
 
 
 
     }
     else {
-      this.finalValue = this.finalValue + 1;
-      console.log("from seat component");
+
+      this.finalValue = this.finalValue - 1;
+      seat.occupied = !seat.occupied;
+      const index = this.seatsSelected.indexOf(seat.seatname, 0);
+      if (index > -1) {
+        this.seatsSelected.splice(index, 1);
+      }
+      console.log(this.seatsSelected);
       console.log(this.finalValue);
 
     }
     this.sharingService.setTotalSeats(this.finalValue);
 
-    this.status = this.toggle ? 'Enable' : 'Disable';
+    //this.status = this.toggle ? 'Enable' : 'Disable';
   }
 
 
