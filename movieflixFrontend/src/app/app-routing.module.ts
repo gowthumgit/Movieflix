@@ -18,6 +18,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { HomePageComponent } from './homeComponents/home-page/home-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { WalletComponentComponent } from './userDetails/wallet-component/wallet-component.component';
+import { HistoryComponent } from './userDetails/history/history.component';
 
 
 
@@ -39,11 +40,9 @@ const routes: Routes = [
   {path : 'home/edituser/:id',component:EditUserComponent},
   {path : 'home/payment',component:PaymentComponent},
   {path : 'home/booking',component:BookingComponent},
-  {path:'home/wallet',component:WalletComponentComponent}
-  
-
-
-  
+  {path:'home/wallet',component:WalletComponentComponent},
+  {path :'home/history',component:HistoryComponent}
+   
 ];
 
 @NgModule({

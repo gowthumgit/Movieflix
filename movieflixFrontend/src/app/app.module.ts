@@ -24,6 +24,7 @@ import { HomePageComponent } from './homeComponents/home-page/home-page.componen
 import { BookingComponent } from './booking/booking.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { WalletComponentComponent } from './userDetails/wallet-component/wallet-component.component';
+import { HistoryComponent } from './userDetails/history/history.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { WalletComponentComponent } from './userDetails/wallet-component/wallet-
        HomePageComponent,
        BookingComponent,
        WalletComponentComponent,
+       HistoryComponent,
        
        
       
