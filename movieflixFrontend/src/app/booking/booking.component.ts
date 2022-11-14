@@ -7,6 +7,8 @@ import { Movie } from '../models/movie';
 import { TheatreService } from '../services/theatre.service';
 import { Theatre } from '../models/theatre';
 import { Time1 } from '../models/time';
+import{ History} from '../models/history'; 
+import { HistoryService } from '../services/history.service';
 
 @Component({
   selector: 'app-booking',
@@ -23,9 +25,16 @@ export class BookingComponent implements OnInit {
   time1!:Time1;
   loc!: String;
   seatNumbers:any=[];
+  historyId!:String;
+  movieName!:String;
+  theatreName!:String;
+  amountPaid!:String;
+  userName!:String;
+  historyData!:any;
+  
 
   myAngularQrCode:any;
-  constructor(private sharingService:SharingService,private route:Router,private movService:MovieServices,private theatService:TheatreService) { 
+  constructor(private sharingService:SharingService,private route:Router,private movService:MovieServices,private theatService:TheatreService,private histService:HistoryService) { 
     this.getUser();
     this.getMovie();
     this.getTotalSeats();
@@ -33,6 +42,7 @@ export class BookingComponent implements OnInit {
     this.getTheatreTime();
     this.getLocation();
     this.getseatnumbers();
+    this.setHistory();
    
 
     this.myAngularQrCode='Your Qr Code';
@@ -78,6 +88,50 @@ export class BookingComponent implements OnInit {
   search(moviename:String){
 
   }
+  setHistory(){
+   /*  this.historyData[0]="Ord"+String(Math.floor(Math.random() * 100));
+    this.historyData[1]=this.movieDetails.name;
+    this.historyData[2]=this.theatreDetails.theatreName;
+    this.historyData[3]=Number(this.totalSeats*240);
+    this.historyData[4]=this.user.userId;
+    console.log("From history Comp");
+    console.log(this.historyData);
+    this.histService.addHistory(this.historyData).subscribe({
+      complete :()=>{
+        this.route.navigateByUrl('/history');
+        console.log('History added successfully');
+
+      },
+      error : (e :any) =>{
+        console.log(e)
+      }
+    });
+ */
+    this.historyData ={
+
+      historyId : "Ord"+String(Math.floor(Math.random() * 100)),
+      movieName : this.movieDetails.name,
+      theatreName: this.theatreDetails.theatreName,
+      amountPaid:Number(this.totalSeats*240),
+      userName :this.user.userId
+
+      
+    };
+    this.histService.addHistory(this.historyData).subscribe({
+      complete :()=>{
+        this.route.navigateByUrl('/history');
+        console.log('History added successfully');
+
+      },
+      error : (e :any) =>{
+        console.log(e)
+      }
+    });
+
+
+  }
+
+
   logout(){
     if(window.confirm('Are You sure?')){
     this.sharingService.clearUser();

@@ -31,6 +31,7 @@ filteredhistory:any=[];
       for(let i=0;i<this.historys.length;i++){
         if(this.user.userId==this.historys[i].userName){
           this.filteredhistory[count]=this.historys[i];
+          count+=1;
   
         }
       }   
