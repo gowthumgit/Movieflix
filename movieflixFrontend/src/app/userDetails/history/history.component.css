@@ -31,9 +31,6 @@ margin-right: 0px !important;
 .abc{
 margin-left: 5px;
 }
-.card{
-border: 0px;
-}
 .s{
 background-color:rgb(43, 49, 72) ;
 color: white;
@@ -71,13 +68,19 @@ body {
 
 .padding {
   padding: 2rem
+  
 }
 
 .card {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -ms-box-shadow: none
+  -ms-box-shadow: none;
+  width : 300px;
+}
+
+.card-header{
+  background-color: lightgray;
 }
 .mx-auto {
   margin-right: auto !important;

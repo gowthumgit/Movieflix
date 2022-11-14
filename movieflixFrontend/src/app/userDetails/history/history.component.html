@@ -35,27 +35,70 @@
         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mx-3" alt="">
 </nav>
 
-<div class="top_space">
-    <div class="row border-0" style=" text-align: center;">
-        <div class="card col-sm-3 border-0 text-align: center;"
-            *ngFor="let hist of filteredhistory.slice().reverse(); let i = index;">
-            
+<div class="top_space bg-light">
+    <div class="container" style=" text-align: center;">
+        <h1>Booking History</h1>
+        <br><br>
+        <div class="d-flex flex-wrap">
+            <div class="row border-0" style=" text-align: center;">
+                <div class="card col-sm-3 border-0 text-align: center;"
+                    *ngFor="let hist of filteredhistory.slice().reverse(); let i = index;">
                 
-                
-                <div class="card-body border-0">
-                    <h5>{{hist.movieName}}</h5>
-                    <h5 class="card-title">{{hist.theatreName}} - {{hist.amountPaid}}</h5>
-                    <p class="card-text">{{hist.userName}}</p>
-                </div>
-                <div class="card-footer">
-                    <div class="btn-group">
-                       
+                    <span>
+                        <div
+                            class="card summany-container">
+                            <div class="card-header">
+                                <h5 class="card-title">
+                                    
+                                        {{hist.historyId}}
+                            
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="d-flex align-items-center">
+                                <i class="bi bi-film"></i>
+
+                                        {{hist.movieName}}
+                                
+                                </h5>
+                                
+                                <h6 class="d-flex align-items-center">
+                                <i class="bi bi-bag"></i>
+                                    {{hist.theatreName}}
+                                </h6>
+                                <p class="card-text d-flex" >
+                                <i class="bi bi-currency-rupee"></i>
+                                
+                                        {{hist.amountPaid}}
+                                    
+                                </p>
+                                
+                                <h6 class="d-flex align-items-center">
+                                <i class="bi bi-person-badge-fill"></i>
+                                {{hist.userName}}
+                                </h6>
+                            </div>
+                            
+                        </div>
+                        </span>
+
+
+                    <!-- <div class="card-body border-0">
+                        <h5>{{hist.movieName}}</h5>
+                        <h5 class="card-title">{{hist.theatreName}} - {{hist.amountPaid}}</h5>
+                        <p class="card-text">{{hist.userName}}</p>
                     </div>
+                    <div class="card-footer">
+                        <div class="btn-group">
+
+                        </div>
+                    </div> -->
+
                 </div>
-            
-        </div>
-        <br>
-    </div>
+                <br>
+            </div>
+            </div>
+            </div>
     
 
 
