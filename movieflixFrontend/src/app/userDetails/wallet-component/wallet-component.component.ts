@@ -31,10 +31,10 @@ export class WalletComponentComponent implements OnInit {
    
 
   ngOnInit(): void {
-    this.username = new FormControl('', [Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z ]*$')]);
-    this.cardNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{16}$')]);
-    this.cvvNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{3}$')]);
-    this.amount=new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
+    this.username = new FormControl('', [Validators.required,Validators.minLength(3),this.noWhitespaceValidator,Validators.pattern('^[a-zA-Z ]*$')]);
+    this.cardNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{16}$'),this.noWhitespaceValidator]);
+    this.cvvNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{3}$'),this.noWhitespaceValidator]);
+    this.amount=new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$'),this.noWhitespaceValidator]);
 
     
     this.walletForm=new FormGroup({
@@ -99,5 +99,10 @@ search(moviename:String){
   
 }
 
+noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control && control.value && control.value.toString() || '').trim().length === 0;
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
+}
 
 }

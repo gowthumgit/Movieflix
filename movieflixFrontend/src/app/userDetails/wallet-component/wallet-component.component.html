@@ -73,6 +73,7 @@
                                                 character</strong>
                                             <strong *ngIf="username.errors?.['pattern']">Name Should not have numbers or
                                                 special characters</strong>
+                                                <strong *ngIf="username.errors?.['whitespace']">Please enter valid data spaces alone is not accepted</strong>
                                         </div>
                                     </div>
 
@@ -95,6 +96,7 @@
                                                 </strong>
                                                 <strong *ngIf="cardNumber.errors?.['pattern']">Enter a valid Card Number
                                                 </strong>
+                                                <strong *ngIf="cardNumber.errors?.['whitespace']">Please enter valid data spaces alone is not accepted</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -150,6 +152,7 @@
                                                         required </strong>
                                                     <strong *ngIf="cvvNumber.errors?.['pattern']">Enter a valid CVV
                                                         Number </strong>
+                                                        <strong *ngIf="cvvNumber.errors?.['whitespace']">Please enter valid data spaces alone is not accepted</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,6 +172,7 @@
                                                         </strong>
                                                         <strong *ngIf="amount.errors?.['pattern']">Enter an Valid amount
                                                         </strong>
+                                                        <strong *ngIf="amount.errors?.['whitespace']">Please enter valid data spaces alone is not accepted</strong>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,7 +185,7 @@
                                                     class="form-control" disabled> </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer"> <button type="button" (click)="editUser()"
+                                    <div class="card-footer"> <button type="button" (click)="editUser()" [disabled]="walletForm.invalid"
                                             class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment
                                         </button>
                                     </div>

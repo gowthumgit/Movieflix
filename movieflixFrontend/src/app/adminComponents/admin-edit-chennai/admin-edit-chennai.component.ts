@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieServices} from '../../services/movie-services.service';
 import { Movie} from '../../models/movie'
@@ -26,10 +26,11 @@ export class AdminEditChennaiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.name = new FormControl();
-    this.language = new FormControl();
-    this.genre = new FormControl();
-    this.image_url = new FormControl();
+    this.name = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
+    this.language = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$'),this.noWhitespaceValidator]);
+    this.genre = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
+    this.image_url = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
 
     this.editMovForm = new FormGroup({
       'name' : this.name,
@@ -75,6 +76,11 @@ export class AdminEditChennaiComponent implements OnInit {
         }
       });
     }
+}
+noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control && control.value && control.value.toString() || '').trim().length === 0;
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
 }
 
 

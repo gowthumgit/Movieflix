@@ -84,7 +84,7 @@
             </div>
 
             <div class="mb-3">
-              <button type="submit" class="btn btn-block text-uppercase" (click)= "addUser()">Sign Up</button>
+              <button type="submit"   [disabled]="addUseForm.invalid"   class="btn btn-block text-uppercase" (click)= "addUser()">Sign Up</button>
             </div>
 
             <div class="text-right">

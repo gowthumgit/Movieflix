@@ -34,17 +34,17 @@ export class AdminAddChennaiComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movieId = new FormControl('',[Validators.required,Validators.minLength(3)]);
-    this.name = new FormControl('',[Validators.required]);
-    this.genre = new FormControl('',[Validators.required]);
-    this.image_url = new FormControl('',[Validators.required]);
+    this.movieId = new FormControl('',[Validators.required,Validators.minLength(3),this.noWhitespaceValidator]);
+    this.name = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
+    this.genre = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
+    this.image_url = new FormControl('',[Validators.required,this.noWhitespaceValidator]);
     this.language = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
+      Validators.pattern('^[a-zA-Z ]*$'),this.noWhitespaceValidator]);
+    this.duration = new FormControl('',[Validators.required,Validators.pattern('^[0-9]+$'),this.noWhitespaceValidator]);
+    this.rating = new FormControl('',[Validators.required,Validators.pattern('^[0-9]{1}$'),this.noWhitespaceValidator]);
+    this.actors = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),this.noWhitespaceValidator,
       Validators.pattern('^[a-zA-Z ]*$')]);
-    this.duration = new FormControl('',[Validators.required,Validators.pattern('^[0-9]+$')]);
-    this.rating = new FormControl('',[Validators.required,Validators.pattern('^[0-9]{1}$')]);
-    this.actors = new FormControl('',[Validators.required,Validators.maxLength(50),Validators.minLength(3),
-      Validators.pattern('^[a-zA-Z ]*$')]);
-    this.audi_ids = new FormControl('',[Validators.required,Validators.minLength(3)]);
+    this.audi_ids = new FormControl('',[Validators.required,Validators.minLength(3),this.noWhitespaceValidator]);
 
     this.addMovForm = new FormGroup({
       'movieId':this.movieId,
@@ -82,7 +82,12 @@ completeLogin(){
      
   }
 
-
+  noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control && control.value && control.value.toString() || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
+  
 
 
   }

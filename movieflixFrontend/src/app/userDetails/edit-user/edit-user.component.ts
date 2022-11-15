@@ -39,17 +39,17 @@ export class EditUserComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.userId=new FormControl('', [Validators.required,Validators.minLength(3)]);
+    this.userId=new FormControl('', [Validators.required,Validators.minLength(3),this.noWhitespaceValidator]);
     this.userEmail=new FormControl('',
     [
-      Validators.required,
+      Validators.required,this.noWhitespaceValidator,
       Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
     ]);
-    this.userLanguage=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),
+    this.userLanguage=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),this.noWhitespaceValidator,
       Validators.pattern('^[a-zA-Z ]*$')]);
-    this.userLocation=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),
+    this.userLocation=new FormControl('', [Validators.required,Validators.maxLength(50),Validators.minLength(3),this.noWhitespaceValidator,
       Validators.pattern('^[a-zA-Z ]*$')]);
-    this.userBalance=new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')]);
+    this.userBalance=new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$'),this.noWhitespaceValidator]);
 
     this.editUseForm=new FormGroup({
       'userId':this.userId,
@@ -138,6 +138,11 @@ getLocation(){
   this.loc=this.sharingService.getLocation();
   console.log("From getlocation");
         console.log(this.loc);
+}
+noWhitespaceValidator(control: FormControl) {
+  const isWhitespace = (control && control.value && control.value.toString() || '').trim().length === 0;
+  const isValid = !isWhitespace;
+  return isValid ? null : { 'whitespace': true };
 }
 
 
